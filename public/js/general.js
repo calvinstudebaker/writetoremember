@@ -17,6 +17,10 @@ function initializePage() {
 	}).focusout(function() {
 		$(this).removeClass("highlighted").removeClass("error");
 	});
+
+	$('#settingsButton').click(function(){
+		switchToPage("/placeholder");
+	});
 }
 
 function switchToPage(page){

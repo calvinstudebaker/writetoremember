@@ -5,3 +5,10 @@ function signIn(){
 		switchToPage("/home");
 	}
 }
+
+$(document).ready(function() {
+	$('#settingsButton').click(switchToPage(placeholder));
+	$('#signInButton').click(switchToPage(placeholder));
+	$('#createAccountButton').click(switchToPage(placeholder));
+
+})
