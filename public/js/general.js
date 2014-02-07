@@ -24,7 +24,7 @@ function initializePage() {
 }
 
 function switchToPage(page){
-	$(".content").hide("fast");
+	$(".container").hide("fast");
 	setTimeout(function() {
 		$(location).attr('href', page);
 	}, 300);
