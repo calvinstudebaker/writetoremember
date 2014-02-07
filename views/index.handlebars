@@ -11,6 +11,7 @@
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/general.js"></script>
+	<script src="/js/index.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,13 +22,25 @@
 </head>
 
 <body>
+	<div class="header">
+		<center>
+		<span class="logo">Write to Remember</span>
+		<button type="button" id="settingsButton" class="btn btn-primary btn-lg">
+			<span class="glyphicon glyphicon-cog">
+		</button>
+		</center>
+  	</div>
 	<div class="container">
-		<div class="jumbotron">
-			<h1>Michael Bernstein</h1>
-			<p>human-computer interaction &middot; social computing &middot; crowdsourcing</p>
-		</div>
+		<center>
+			<form action="javascript:void(0)" onsubmit="signIn()">
+				<input type="text" placeholder="email" id="email" autocomplete="off"><br>
+				<input type="password" placeholder="password" id="password" autocomplete="off"><br>
+	   			<input type="checkbox" id="rememberMe" value="Remember">Remember Me<br>
+	    		<input type="submit" value="Sign In" id="signInButton"><br>
+			</form>
+			<br><br>
+			<h3>Need an Account?</h3> <button type="button" class="btn btn-default btn-lg">Create Account</button>
+		</center>
 	</div>
-
-	
 </body>
 </html>

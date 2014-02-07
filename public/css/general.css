@@ -29,3 +29,104 @@
 .jumbotron p {
      color: #6e6e6e;
 }
+
+body{
+     min-width: 800px;
+}
+
+div.header{
+     background-color: #1B9BE0;
+     width: 100%;
+     height: 100px;
+     text-align: center;
+}
+
+span.logo{
+     font-weight: 400;
+     font-size: 70px;
+     color: #FFFFFF;
+     height: 100%;
+     margin-bottom: 20px;
+}
+
+#settingsButton{
+     margin-top: 25px;
+     float: right;
+     margin-right: 50px;
+}
+
+.container{
+     margin-top: 50px;
+}
+
+input{
+  margin: 10px 0 10px 0;
+}
+
+input[type="checkbox"]{
+  -webkit-transform: scale(2);
+  height: 16px;
+  background-color: #1B9BE0;
+  margin-right: 12px;
+  margin-left: 5px;
+  margin: 15px 12px 15px 5px;
+}
+
+input[type="text"]{
+  background: #f1f1f1;
+  border-radius: 4px;
+  border: 0px;
+  box-shadow: 0 0 4px 1px #c5c5c5;
+  box-sizing: border-box;
+  color: #000000;
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 100%;
+  transition: box-shadow 0.2s;
+  width: 240px;
+}
+
+input[type="password"] {
+  background: #f1f1f1;
+  border-radius: 4px;
+  border: 0px;
+  box-shadow: 0 0 4px 1px #c5c5c5;
+  box-sizing: border-box;
+  color: #000000;
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 100%;
+  transition: box-shadow 0.2s;
+  width: 240px;
+}
+
+input[type="submit"]{
+  box-sizing: border-box;
+  border-radius: 8px; 
+  width:240px;
+  height:40px;
+  border: 0px;
+  font-size: 120%;
+  color:#ffffff; 
+  background: #1B9BE0;
+}
+
+input[type="submit"]:hover{
+  background: #4DCDFF;
+}
+
+input[type="submit"]:active {
+   box-shadow: inset 0 0 10px #000000;
+}
+
+input.highlighted{
+     box-shadow: 0 0 4px 1px #1B9BE0;
+     outline: 0;
+}
+
+input.error{
+  box-shadow: 0 0 4px 1px #d1333e;
+  outline: 0;
+}
