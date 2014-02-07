@@ -20,4 +20,7 @@ function getDate(){
 
 $(document).ready(function() {
 	getDate();
+	$('#settingsButton').click(switchToPage(placeholder));
+	$('#submitButton').click(switchToPage(placeholder));
+	$('#pastSentencesButton').click(switchToPage(placeholder));
 })
