@@ -10,6 +10,7 @@ var handlebars = require('express3-handlebars')
 
 var index = require('./routes/indexRoute');
 var home = require('./routes/homeRoute');
+var placeholder = require('./routes/placeholderRoute');
 
 var app = express();
 
