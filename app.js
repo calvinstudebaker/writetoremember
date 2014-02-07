@@ -11,6 +11,7 @@ var handlebars = require('express3-handlebars')
 var index = require('./routes/indexRoute');
 var home = require('./routes/homeRoute');
 var placeholder = require('./routes/placeholderRoute');
+var past = require('./routes/pastRoute');
 
 var app = express();
 
@@ -38,6 +39,8 @@ if ('development' == app.get('env')) {
 app.get('/', index.view);
 app.get('/placeholder', placeholder.view);
 app.get('/home', home.view);
+app.get('/past', past.view);
+
 // Example route
 // app.get('/users', user.list);
 
