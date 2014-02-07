@@ -34,14 +34,16 @@
 	<div class="container">
 		<center>
 			<h1>Your Past:</h1>
-			<table class = "table table-striped table-hover pastEntries">
-				{{#each entries}}
-				<tr>
-					<td>{{date}}</td>
-					<td>{{content}}</td>
-				{{/each}}
-			</table>
-
+			<div class="pastEntries">
+				<table class="table table-striped table-hover">
+					{{#each entries}}
+					<tr>
+						<td>{{date}}</td>
+						<td>{{content}}</td>
+					{{/each}}
+				</table>
+			</div>
+			<br><br>
 			<button type="button" id="homeButton" class="btn btn-primary btn-lg">Go Back</button>
 			
 		</center>
