@@ -1,3 +1,5 @@
 $(document).ready(function() {
-	$('#goHomeButton').click(switchToPage(home));
+	$('#goHomeButton').click(function(){
+		switchToPage("/home");
+	});
 })

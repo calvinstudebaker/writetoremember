@@ -7,8 +7,7 @@ function signIn(){
 }
 
 $(document).ready(function() {
-	$('#settingsButton').click(switchToPage(placeholder));
-	$('#signInButton').click(switchToPage(placeholder));
-	$('#createAccountButton').click(switchToPage(placeholder));
-
+	$('#createAccountButton').click(function(){
+		switchToPage("/placeholder");
+	});
 })
