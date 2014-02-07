@@ -20,4 +20,8 @@ function getDate(){
 
 $(document).ready(function() {
 	getDate();
+
+	$("#pastButton").click(function(){
+		switchToPage("/past");
+	});
 })
