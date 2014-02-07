@@ -11,7 +11,7 @@
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/general.js"></script>
-	<script src="/js/index.js"></script>
+	<script src="/js/home.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,7 +25,6 @@
 	<div class="header">
 		<center>
 		<span class="logo">Write to Remember</span>
-		<h3>Capture your day in a moment!</h3>
 		<button type="button" id="settingsButton" class="btn btn-primary btn-lg">
 			<span class="glyphicon glyphicon-cog">
 		</button>
@@ -33,15 +32,12 @@
   	</div>
 	<div class="container">
 		<center>
-			<h5><font color = "1B9BE0">This app reminds you to write down a sentence a day to capture your busy life!</h5>
-			<form action="javascript:void(0)" onsubmit="signIn()">
-				<input type="text" placeholder="email" id="email" autocomplete="off"><br>
-				<input type="password" placeholder="password" id="password" autocomplete="off"><br>
-	   			<input type="checkbox" id="rememberMe" value="Remember">Remember Me<br>
-	    		<input type="submit" value="Sign In" id="signInButton"><br>
-			</form>
-			<br><br>
-			<h3>Need an Account?</h3> <button type="button" class="btn btn-default btn-lg">Create Account</button>
+			<h1>Today is:</h1>
+			<h3 id="dateLocation"></h3>
+
+
+
+			
 		</center>
 	</div>
 </body>
