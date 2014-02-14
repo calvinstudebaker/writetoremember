@@ -1,0 +1,15 @@
+{
+	"Mikaela":
+	{
+		"password":"password"
+	},
+	"Peter":
+	{
+		"password":"pants"
+	},
+	"Calvin":
+	{
+		"password":"boobs"
+	},
+	"currentUser":"default"
+}

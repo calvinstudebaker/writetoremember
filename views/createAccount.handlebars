@@ -11,8 +11,7 @@
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/general.js"></script>
-	<script src="/js/placeholder.js"></script>
-
+	<script src="/js/createAccount.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,12 +30,17 @@
 		</button>
 		</center>
   	</div>
-  	<div class="container">
+	<div class="container">
 		<center>
-		<h1>Welcome to the placeholder page!</h1>
-		<IMG src="http://media.giphy.com/media/NvVzg5BUOd41W/giphy.gif" alt="here's a gif for ya">
-		<h3>Aight, go back now:</h3>
-		<button type="button" id = "goHomeButton" class="btn btn-info">Home</button>
+			<h1>Create New Account</h1>
+			<h4 id="errorPlaceholder" class="error"></h4>
+			<form action="javascript:void(0)" onsubmit="createAccount()">
+				<input type="text" placeholder="email" id="email" autocomplete="off"><br>
+				<input type="password" placeholder="password" id="password" autocomplete="off"><br>
+	    		<input type="submit" value="Create Account" id="createButton"><br><br><br>
+	    		<h3>Back to Login Page</h3>
+	    		<button type="button" id ="backButton" class="btn btn-default btn-lg">Home</button>
+			</form>
 		</center>
 	</div>
 </body>

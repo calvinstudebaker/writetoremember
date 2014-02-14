@@ -19,7 +19,11 @@ function initializePage() {
 	});
 
 	$('#settingsButton').click(function(){
-		switchToPage("/placeholder");
+		switchToPage("/settings");
+	});
+
+	$("#homeButton").click(function(){
+		switchToPage("/home");
 	});
 }
 

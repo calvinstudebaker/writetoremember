@@ -18,13 +18,30 @@ function getDate(){
 	
 }
 
+function getAbbreviatedDate(){
+	var monthNames = new Array(
+		"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+
+	var now = new Date();
+	var date = monthNames[now.getMonth()] + " " + now.getDate();
+	return date;
+}
+
+function addPastEntry(){
+	var data = new Object();
+	data.date = getAbbreviatedDate();
+	data.content = $("#entry").val();
+	$.post("/addEntry", data, function(response){
+		if(response.status == "success") switchToPage("/past");
+		else alert("Failure connecting to server. Please try again later.");
+	});
+}
+
 $(document).ready(function() {
 	getDate();
 	$("#pastButton").click(function(){
 		switchToPage("/past");
 	});
 
-	$('#submitButton').click(function(){
-		switchToPage("/placeholder");
-	});
-})
+	$('#submitButton').click(addPastEntry);
+});

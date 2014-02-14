@@ -12,6 +12,8 @@ var index = require('./routes/indexRoute');
 var home = require('./routes/homeRoute');
 var placeholder = require('./routes/placeholderRoute');
 var past = require('./routes/pastRoute');
+var settings = require('./routes/settingsRoute');
+var createAccount = require('./routes/createAccountRoute');
 
 var app = express();
 
@@ -40,6 +42,13 @@ app.get('/', index.view);
 app.get('/placeholder', placeholder.view);
 app.get('/home', home.view);
 app.get('/past', past.view);
+app.get('/settings', settings.view);
+app.get('/create', createAccount.view);
+app.post('/signIn', index.signIn);
+app.post('/addEntry', past.addEntry);
+app.post('/saveSettings', settings.save);
+app.post('/create', createAccount.create);
+
 
 // Example route
 // app.get('/users', user.list);
