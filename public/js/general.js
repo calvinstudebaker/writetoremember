@@ -25,6 +25,9 @@ function initializePage() {
 	$("#homeButton").click(function(){
 		switchToPage("/home");
 	});
+	$("#pastButton").click(function(){
+		switchToPage("/past");
+	});
 }
 
 function switchToPage(page){
