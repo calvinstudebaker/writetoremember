@@ -34,6 +34,18 @@ body{
      min-width: 800px;
 }
 
+div.footer{
+  vertical-align: bottom;
+  postion:fixed;
+  width:100%;
+  bottom:0;
+}
+
+.bottomButton{
+
+  width: 33%;
+}
+
 div.header{
      background-color: #1B9BE0;
      width: 100%;
@@ -48,11 +60,6 @@ span.logo{
      height: 100%;
 }
 
-#settingsButton{
-     margin-top: 25px;
-     float: right;
-     margin-right: 50px;
-}
 
 .container{
      margin-top: 10px;
