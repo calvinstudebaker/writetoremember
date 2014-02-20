@@ -1,7 +1,4 @@
 var pastEntries = require("../data/pastData.json");
-var helpers = require('diy-handlebars-helpers');
-var hbs = require('handlebars-runtime');
-var _   = require('lodash');
 
 
 exports.view = function(req, res){
