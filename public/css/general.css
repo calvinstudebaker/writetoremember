@@ -41,6 +41,12 @@ div.footer{
   bottom:0;
 }
 
+.editButton {
+  width: 40px;
+  height: 40px;
+  background: ##D1E0E0;
+}
+
 input.fileButton{
   width:240px;
   height:40px;
@@ -51,7 +57,6 @@ input.fileButton{
 }
 
 .bottomButton{
-
   width: 33%;
 }
 

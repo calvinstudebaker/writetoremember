@@ -6,9 +6,8 @@ exports.view = function(req, res){
 
 exports.addEntry = function(req, res){
 	var newEntry = req.body;
-	pastEntries['entries'].push(newEntry);
+	pastEntries['entries'].unshift(newEntry);
 	var response = new Object();
 	response.status = "success";
 	res.json(response);
-
 };

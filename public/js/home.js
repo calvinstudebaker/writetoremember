@@ -15,13 +15,11 @@ function getDate(){
 	now.getDate() + ", " + now.getFullYear();
 
 	$("#dateLocation").append(date);
-	
 }
 
 function getAbbreviatedDate(){
 	var monthNames = new Array(
 		"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
-
 	var now = new Date();
 	var date = monthNames[now.getMonth()] + " " + now.getDate();
 	return date;
@@ -34,8 +32,7 @@ function addPastEntry(){
 		data.content = $("#fileupload").val() + " " + $("#entry").val();
 	} else {
 		data.content = $("#entry").val();
-	}
-	
+	}	
 	$.post("/addEntry", data, function(response){
 		if(response.status == "success") switchToPage("/past");
 		else alert("Failure connecting to server. Please try again later.");
