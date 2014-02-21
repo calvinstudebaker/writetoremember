@@ -59,10 +59,10 @@ function showEntryError() {
 }
 
 $(document).ready(function() {
-		getDate();
-		$("#pastButton").click(function(){
-			switchToPage("/past");
-		});
+	getDate();
+	$("#pastButton").click(function(){
+		switchToPage("/past");
+	});
 
 	$('#submitButton').click(addPastEntry);
 	$("#uploadTest").click(uploadMedia);
