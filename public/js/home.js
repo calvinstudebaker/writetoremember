@@ -56,17 +56,10 @@ function uploadMedia(){
 	}
 }
 
-<<<<<<< HEAD
-function getRandomEntry() {
-	$.post("/getRandomEntry", data, function(response){
-		$('#randomPlaceholder').html("TEST STUFF")
-}
-=======
 function showEntryError() {
 	$('#errorPlaceholder').html("Please enter some text!"); 
 }
 
->>>>>>> 731df53aa5ad7e6a1e49877116253650a2c07bd9
 $(document).ready(function() {
 	getDate();
 	$("#pastButton").click(function(){
@@ -75,5 +68,4 @@ $(document).ready(function() {
 
 	$('#submitButton').click(addPastEntry);
 	$("#uploadTest").click(uploadMedia);
-	getRandomEntry(); 
 });
