@@ -1,7 +1,11 @@
 var settingsData = require("../data/settingsData.json");
 
 exports.view = function(req, res){
-  res.render('settings', settingsData);
+  if (!req.session.username) {
+  	res.render('index');
+  } else {
+  	res.render('settings', settingsData);
+  }
 };
 
 exports.save = function(req, res){

@@ -14,8 +14,9 @@ var placeholder = require('./routes/placeholderRoute');
 var past = require('./routes/pastRoute');
 var settings = require('./routes/settingsRoute');
 var createAccount = require('./routes/createAccountRoute');
-
+var clientSessions = require("client-sessions");
 var app = express();
+
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -32,10 +33,16 @@ app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+app.use(clientSessions({
+  secret: '0GBlJZ9EKBt2Zbi2flRPvztcaskdjfaksdjfCewBxXK' // CHANGE THIS!
+}));
+
 
 // Add routes here
 app.get('/', index.view);

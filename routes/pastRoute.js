@@ -1,7 +1,11 @@
 var pastEntries = require("../data/pastData.json");
 
 exports.view = function(req, res){
-  res.render('past', pastEntries);
+  if (!req.session.username) {
+  	res.render('index');
+  } else {
+    res.render('past', pastEntries);
+  }
 };
 
 exports.addEntry = function(req, res){
