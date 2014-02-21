@@ -30,7 +30,12 @@ function getAbbreviatedDate(){
 function addPastEntry(){
 	var data = new Object();
 	data.date = getAbbreviatedDate();
-	data.content = $("#entry").val();
+	if ($("#fileupload").val()) {
+		data.content = $("#fileupload").val() + " " + $("#entry").val();
+	} else {
+		data.content = $("#entry").val();
+	}
+	
 	$.post("/addEntry", data, function(response){
 		if(response.status == "success") switchToPage("/past");
 		else alert("Failure connecting to server. Please try again later.");

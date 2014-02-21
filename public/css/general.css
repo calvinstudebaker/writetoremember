@@ -41,6 +41,15 @@ div.footer{
   bottom:0;
 }
 
+input.fileButton{
+  width:240px;
+  height:40px;
+  border: 0px;
+  font-size: 120%;
+  color:#ffffff; 
+  background: #1B9BE0;
+}
+
 .bottomButton{
 
   width: 33%;
