@@ -32,7 +32,7 @@ function addPastEntry(){
 	if($("#entry").val()){
 		data.text = $("#entry").val();
 		if ($("#photoUpload").val()) {
-			alert($("#photoUpload").val());
+			data.photo 
 		}	
 		$.post("/addEntry", data, function(response){
 			if(response.status == "success") switchToPage("/past");
