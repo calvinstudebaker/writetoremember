@@ -11,10 +11,6 @@
 	<link href="/css/general.css" rel="stylesheet">
 	<link rel="apple-touch-startup-image" href="/public/images/WtRIcon.png">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="js/vendor/jquery.ui.widget.js"></script>
-	<script src="js/jquery.iframe-transport.js"></script>
-	<script src="js/jquery.fileupload.js"></script>
-	
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,12 +35,7 @@
 
 			<textarea id ="entry" class="form-control" rows="3"></textarea>
 			<br>
-
-			<button type="button" id="uploadTest" class="btn btn-primary">Upload Media</button>
-
-			<input type="file" accept="image/*" capture="camera">
-			<br>
-			<input type="file" accept="video/*;capture=camcorder">
+			<input type="file" id="photoUpload" accept="image/*" capture="camera">
 			<br>
 			<button type="button" id ="submitButton" class="btn btn-primary">Submit</button>	
 		</center>

@@ -28,10 +28,9 @@ function getAbbreviatedDate(){
 function addPastEntry(){
 	var data = new Object();
 	data.date = getAbbreviatedDate();
-	if ($("#fileupload").val()) {
-		data.content = $("#fileupload").val() + " " + $("#entry").val();
-	} else {
-		data.content = $("#entry").val();
+	data.text = $("#entry").val();
+	if ($("#photoUpload").val()) {
+		alert($("#photoUpload").val());
 	}	
 	$.post("/addEntry", data, function(response){
 		if(response.status == "success") switchToPage("/past");
