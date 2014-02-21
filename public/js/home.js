@@ -39,6 +39,19 @@ function addPastEntry(){
 	});
 }
 
+function hasGetUserMedia() {
+  	return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia || navigator.msGetUserMedia);
+}
+
+function uploadMedia(){
+	if (hasGetUserMedia()) {
+	  alert('werrrd');
+	} else {
+	  alert('accessing user media is not supported in your browser');
+	}
+}
+
 $(document).ready(function() {
 	getDate();
 	$("#pastButton").click(function(){
@@ -46,4 +59,5 @@ $(document).ready(function() {
 	});
 
 	$('#submitButton').click(addPastEntry);
+	$("#uploadTest").click(uploadMedia);
 });

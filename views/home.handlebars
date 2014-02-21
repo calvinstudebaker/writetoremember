@@ -37,23 +37,14 @@
 
 			<textarea id ="entry" class="form-control" rows="3"></textarea>
 			<br>
-			<input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
-			<script>
-			$(function () {
-			    $('#fileupload').fileupload({
-			        dataType: 'json',
-			        done: function (e, data) {
-			            $.each(data.result.files, function (index, file) {
-			                $('<p/>').text(file.name).appendTo(document.body);
-			            });
-			        }
-			    });
-			});
-			</script>
+
+			<button type="button" id="uploadTest" class="btn btn-primary">Upload Media</button>
+
+			<input type="file" accept="image/*" capture="camera">
 			<br>
-			<button type="button" id ="submitButton" class="btn btn-primary">Submit</button>
-			<br><br>
- 			
+			<input type="file" accept="video/*;capture=camcorder">
+			<br>
+			<button type="button" id ="submitButton" class="btn btn-primary">Submit</button>	
 		</center>
 	</div>
 	<div class ="footer">
