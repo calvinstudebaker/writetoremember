@@ -28,14 +28,19 @@ function getAbbreviatedDate(){
 function addPastEntry(){
 	var data = new Object();
 	data.date = getAbbreviatedDate();
-	data.text = $("#entry").val();
-	if ($("#photoUpload").val()) {
-		alert($("#photoUpload").val());
-	}	
-	$.post("/addEntry", data, function(response){
-		if(response.status == "success") switchToPage("/past");
-		else alert("Failure connecting to server. Please try again later.");
-	});
+
+	if($("#entry").val()){
+		data.text = $("#entry").val();
+		if ($("#photoUpload").val()) {
+			alert($("#photoUpload").val());
+		}	
+		$.post("/addEntry", data, function(response){
+			if(response.status == "success") switchToPage("/past");
+			else alert("Failure connecting to server. Please try again later.");
+		});
+	} else {
+		showEntryError();
+	}
 }
 
 function hasGetUserMedia() {
@@ -49,6 +54,10 @@ function uploadMedia(){
 	} else {
 	  alert('accessing user media is not supported in your browser');
 	}
+}
+
+function showEntryError() {
+	$('#errorPlaceholder').html("Please enter some text!"); 
 }
 
 $(document).ready(function() {
