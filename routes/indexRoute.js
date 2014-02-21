@@ -13,11 +13,15 @@ exports.signIn = function(req, res){
 	var email = req.body.email;
 	var password = req.body.password;
 	var responseData = new Object();
+	console.log(email);
+	console.log(password);
 	
 	if(data.hasOwnProperty(email)){
 		if(data[email].password == password){
 			data.currentUser = email;
 			responseData["status"] = "success";
+  			req.session.username = email;
+
 		}else{
 			responseData["status"] = "failure";
 		}

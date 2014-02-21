@@ -40,10 +40,10 @@ function addPastEntry(){
 }
 
 $(document).ready(function() {
-	getDate();
-	$("#pastButton").click(function(){
-		switchToPage("/past");
-	});
+		getDate();
+		$("#pastButton").click(function(){
+			switchToPage("/past");
+		});
 
 	$('#submitButton').click(addPastEntry);
 });

@@ -1,4 +1,8 @@
 $(document).ready(function() {
+	//if (!sessionStorage.hasOwnProperty("username")) {
+	//	switchToPage("/");
+	//} else {
+
 	$("#saveButton").click(function(){
 		var rate = $("#rate").val();
 		var data = new Object();
@@ -16,4 +20,5 @@ $(document).ready(function() {
 			$(this).attr('selected', 'selected');
 		}
 	});
+//}
 })

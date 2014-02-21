@@ -37,9 +37,7 @@
 					{{#each entries}}
 					<tr>
 						<td>{{date}}</td>
-						<td>{{content}}</td>
-						<button type="button" id="editButton" class="btn btn-primary btn-sm editButton white">
-							<span class="glyphicon glyphicon-pencil glyphicon-inverse white">
+						<td><div contenteditable>{{content}}</div></td>
 					{{/each}}
 				</table>
 			</div>

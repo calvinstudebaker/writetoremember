@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 /*
  * Function that is called when the document is ready.
- */
+ */ 
 function initializePage() {
 	$(".container").hide();
 	$(".container").show("slow");
@@ -28,7 +28,20 @@ function initializePage() {
 	$("#pastButton").click(function(){
 		switchToPage("/past");
 	});
+	$("#logoutButton").click(function(){
+		switchToPage("/");
+		$.get("/logout", logOutUser);
+	});
 }
+
+function logOutUser(result) {
+	if(result.status == "success"){
+			req.session.reset();
+			switchToPage("/");
+		}else{
+			alert("Logout failed.");
+		}
+	}
 
 function switchToPage(page){
 	$(".container").hide("fast");
