@@ -15,3 +15,10 @@ exports.addEntry = function(req, res){
 	response.status = "success";
 	res.json(response);
 };
+
+exports.getRandomEntry = function(req, res) {
+    var random_index = Math.floor((Math.random()*entries.length)+1);
+    var random_entry = pastEntries['entries'][random_index];
+    random_entry.status = "success";
+    res.json(random_entry);
+};
