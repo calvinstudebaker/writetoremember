@@ -28,15 +28,19 @@ function getAbbreviatedDate(){
 function addPastEntry(){
 	var data = new Object();
 	data.date = getAbbreviatedDate();
-	if ($("#fileupload").val()) {
-		data.content = $("#fileupload").val() + " " + $("#entry").val();
+
+	if($("#entry").val()){
+		data.text = $("#entry").val();
+		if ($("#photoUpload").val()) {
+			alert($("#photoUpload").val());
+		}	
+		$.post("/addEntry", data, function(response){
+			if(response.status == "success") switchToPage("/past");
+			else alert("Failure connecting to server. Please try again later.");
+		});
 	} else {
-		data.content = $("#entry").val();
-	}	
-	$.post("/addEntry", data, function(response){
-		if(response.status == "success") switchToPage("/past");
-		else alert("Failure connecting to server. Please try again later.");
-	});
+		showEntryError();
+	}
 }
 
 function hasGetUserMedia() {
@@ -52,15 +56,22 @@ function uploadMedia(){
 	}
 }
 
+<<<<<<< HEAD
 function getRandomEntry() {
 	$.post("/getRandomEntry", data, function(response){
 		$('#randomPlaceholder').html("TEST STUFF")
 }
+=======
+function showEntryError() {
+	$('#errorPlaceholder').html("Please enter some text!"); 
+}
+
+>>>>>>> 731df53aa5ad7e6a1e49877116253650a2c07bd9
 $(document).ready(function() {
-		getDate();
-		$("#pastButton").click(function(){
-			switchToPage("/past");
-		});
+	getDate();
+	$("#pastButton").click(function(){
+		switchToPage("/past");
+	});
 
 	$('#submitButton').click(addPastEntry);
 	$("#uploadTest").click(uploadMedia);
