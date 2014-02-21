@@ -55,6 +55,7 @@ app.post('/signIn', index.signIn);
 app.post('/addEntry', past.addEntry);
 app.post('/saveSettings', settings.save);
 app.post('/create', createAccount.create);
+app.post('/getRandomEntry', past.getRandomEntry);
 
 
 // Example route

@@ -52,6 +52,10 @@ function uploadMedia(){
 	}
 }
 
+function getRandomEntry() {
+	$.post("/getRandomEntry", data, function(response){
+		$('#randomPlaceholder').html("TEST STUFF")
+}
 $(document).ready(function() {
 		getDate();
 		$("#pastButton").click(function(){
@@ -60,4 +64,5 @@ $(document).ready(function() {
 
 	$('#submitButton').click(addPastEntry);
 	$("#uploadTest").click(uploadMedia);
+	getRandomEntry(); 
 });
