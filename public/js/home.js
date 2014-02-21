@@ -28,15 +28,17 @@ function getAbbreviatedDate(){
 function addPastEntry(){
 	var data = new Object();
 	data.date = getAbbreviatedDate();
-	if ($("#fileupload").val()) {
-		data.content = $("#fileupload").val() + " " + $("#entry").val();
-	} else {
+	if ($("#entry").val()) {
 		data.content = $("#entry").val();
-	}	
-	$.post("/addEntry", data, function(response){
-		if(response.status == "success") switchToPage("/past");
-		else alert("Failure connecting to server. Please try again later.");
-	});
+	
+		$.post("/addEntry", data, function(response){
+			if(response.status == "success") {
+				if ($("#entry").val()) switchToPage("/past");
+			} else alert("Failure connecting to server. Please try again later.");
+		});
+	} else {
+		showEntryError();
+	}
 }
 
 function hasGetUserMedia() {
@@ -50,6 +52,10 @@ function uploadMedia(){
 	} else {
 	  alert('accessing user media is not supported in your browser');
 	}
+}
+
+function showEntryError() {
+	$('#errorPlaceholder').html("Please enter some text!"); 
 }
 
 $(document).ready(function() {
