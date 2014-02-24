@@ -1,9 +1,9 @@
 function signIn(){
-	var email = $("#email").val();
+	var username = $("#username").val();
 	var password = $("#password").val();
 	
 	var data = new Object();
-	data.email = email;
+	data.username = username;
 	data.password = password;
 	$.post("/signIn", data, logInUser);
 }
@@ -12,14 +12,14 @@ function logInUser(result) {
 	if(result.status == "success"){
 			switchToPage("/home");
 	}else{
-			showLoginError(email, password);
+			showLoginError();
 	}
 }
 
 
 
-function showLoginError(email, password) {
-	$('#errorPlaceholder').html("Sorry, email or password is incorrect."); 
+function showLoginError() {
+	$('#errorPlaceholder').html("Sorry, username or password is incorrect."); 
 }
 
 $(document).ready(function() {

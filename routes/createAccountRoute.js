@@ -5,18 +5,18 @@ exports.view = function(req, res){
 };
 
 exports.create = function(req, res){
-	var email = req.body.email;
+	var username = req.body.username;
 	var account = new Object();
 	account.password = req.body.password;
 
 	var responseData = new Object();
 	
-	if(data.hasOwnProperty(email)){
+	if(data.hasOwnProperty(username)){
 		responseData["status"] = "failure";
 	}else{
-		data[email] = account;
-		data.currentUser = email;
-		req.session.username = email;
+		data[username] = account;
+		data.currentUser = username;
+		req.session.username = username;
 		responseData["status"] = "success";
 	}
 	

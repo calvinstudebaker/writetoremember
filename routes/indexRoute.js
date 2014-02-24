@@ -10,17 +10,17 @@ exports.view = function(req, res){
 };
 
 exports.signIn = function(req, res){
-	var email = req.body.email;
+	var username = req.body.username;
 	var password = req.body.password;
 	var responseData = new Object();
-	console.log(email);
+	console.log(username);
 	console.log(password);
 	
-	if(data.hasOwnProperty(email)){
-		if(data[email].password == password){
-			data.currentUser = email;
+	if(data.hasOwnProperty(username)){
+		if(data[username].password == password){
+			data.currentUser = username;
 			responseData["status"] = "success";
-  			req.session.username = email;
+  			req.session.username = username;
 
 		}else{
 			responseData["status"] = "failure";

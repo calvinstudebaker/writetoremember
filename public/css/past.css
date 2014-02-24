@@ -1,5 +1,5 @@
 .pastEntries{
-	max-height: 185px;
+	max-height: 300px;
 	overflow-y: scroll;
   margin-top: 20px;
 }
