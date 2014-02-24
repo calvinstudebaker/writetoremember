@@ -4,6 +4,7 @@
 function editEntry() {
      
 }
+
 function deleteEntry() {
 
 }
