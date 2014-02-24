@@ -16,8 +16,6 @@ function logInUser(result) {
 	}
 }
 
-
-
 function showLoginError() {
 	$('#errorPlaceholder').html("Sorry, username or password is incorrect."); 
 }

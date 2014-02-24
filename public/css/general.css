@@ -41,15 +41,8 @@ div.footer{
   bottom:0;
 }
 
-.editButton {
-  width: 40px;
-  height: 40px;
-  background: ##D1E0E0;
-}
 
-.white{
-  color: #fff;
-}
+
 
 input.fileButton{
   width: 240px;
@@ -94,7 +87,7 @@ button.flatButton{
 }
 
 button.flatButton:hover{
-  background: #4DCDFF;
+background: #7A7A7A;
 }
 
 button.flatButton:active{

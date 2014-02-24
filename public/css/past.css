@@ -30,3 +30,15 @@
   margin-left: 20px;
   margin-right: 20px;
 }
+
+.pastButton {
+  background-color: #1F1F1F;
+  opacity: 80%;
+  color: #1F1F1F;
+  background: transparent;
+  border: transparent;
+}
+
+.pastButton:hover{
+    background: #A2A2A2;
+}
