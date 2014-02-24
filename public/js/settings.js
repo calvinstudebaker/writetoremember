@@ -4,8 +4,7 @@ $(document).ready(function() {
 		var data = new Object();
 		data.rate = rate;
 		$.post("/saveSettings", data, function(response){
-			if(response.status == "success")
-			else alert("Error connecting with server. Please try again later");
+			if(response.status != "success") alert("Error connecting with server. Please try again later");
 		});
 	});
 
