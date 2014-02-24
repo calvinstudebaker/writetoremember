@@ -31,9 +31,9 @@ function addPastEntry(){
 
 	if($("#entry").val()){
 		data.text = $("#entry").val();
-		if ($("#photoUpload").val()) {
-			data.photo 
-		}	
+		// if ($("#photoUpload").val()) {
+		// 	data.photo 
+		// }	
 		$.post("/addEntry", data, function(response){
 			if(response.status == "success") switchToPage("/past");
 			else alert("Failure connecting to server. Please try again later.");
@@ -59,7 +59,8 @@ function uploadMedia(){
 
 function getRandomEntry() {
 	$.post("/getRandomEntry", data, function(response){
-		$('#randomPlaceholder').html("TEST STUFF")
+		$('#randomPlaceholder').html("TEST STUFF");
+	});
 }
 
 function showEntryError() {
