@@ -16,6 +16,7 @@ exports.create = function(req, res){
 	}else{
 		data[email] = account;
 		data.currentUser = email;
+		req.session.username = email;
 		responseData["status"] = "success";
 	}
 	
