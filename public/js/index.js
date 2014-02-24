@@ -16,8 +16,6 @@ function logInUser(result) {
 	}
 }
 
-
-
 function showLoginError(email, password) {
 	$('#errorPlaceholder').html("Sorry, email or password is incorrect."); 
 }
