@@ -56,6 +56,12 @@ function uploadMedia(){
 	}
 }
 
+
+function getRandomEntry() {
+	$.post("/getRandomEntry", data, function(response){
+		$('#randomPlaceholder').html("TEST STUFF")
+}
+
 function showEntryError() {
 	$('#errorPlaceholder').html("Please enter some text!"); 
 }
