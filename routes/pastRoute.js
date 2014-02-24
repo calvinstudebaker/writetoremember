@@ -9,11 +9,45 @@ exports.view = function(req, res){
 };
 
 exports.addEntry = function(req, res){
+  var data = req.body;
+  var entryID = req.params.id;
+  var newEntry = new Models.Entry({
+    "text": form_data.text,
+    "date": form_data.text
+    //deal with image!!!!
+})
+  newProject.save(afterSaving);
+
+  function afterSaving(err) { // this is a callback
+  if(err) {console.log(err); res.send(500); }
+}
+
+  function afterQuery(err, projects) {
+    if(err) console.log(err);
+    res.json(projects[0]);
+  }
+
+exports.deleteEntry= function(req, res) {
+  var projectID = req.params.id;
+  models.Project
+    .find({"_id" : projectID})
+    .remove()
+    .exec(afterRemoval);
+
+  function afterRemoval(err, projects) {
+    if(err) console.log(err);
+    res.send();
+  }
+}
+
+
+  /**
 	var newEntry = req.body;
 	pastEntries['entries'].unshift(newEntry);
 	var response = new Object();
 	response.status = "success";
 	res.json(response);
+  **/
 };
 
 exports.getRandomEntry = function(req, res) {
