@@ -72,7 +72,6 @@ $(document).ready(function() {
 	$("#pastButton").click(function(){
 		switchToPage("/past");
 	});
-
 	$('#submitButton').click(addPastEntry);
 	$("#uploadTest").click(uploadMedia);
 });

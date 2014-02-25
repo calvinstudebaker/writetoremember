@@ -16,7 +16,7 @@ var settings = require('./routes/settingsRoute');
 var createAccount = require('./routes/createAccountRoute');
 var clientSessions = require("client-sessions");
 var app = express();
-
+var instructions = require('./routes/instructionsRoute');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -51,11 +51,13 @@ app.get('/home', home.view);
 app.get('/past', past.view);
 app.get('/settings', settings.view);
 app.get('/create', createAccount.view);
+app.get('/instructions', instructions.view);
 app.post('/signIn', index.signIn);
 app.post('/addEntry', past.addEntry);
 app.post('/saveSettings', settings.save);
 app.post('/create', createAccount.create);
 app.post('/getRandomEntry', past.getRandomEntry);
+app.post('/instructions', instructions.view);
 
 
 // Example route
