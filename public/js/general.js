@@ -32,6 +32,10 @@ function initializePage() {
 		switchToPage("/");
 		$.get("/logout", logOutUser);
 	});
+	$("#instructionsButton").click(function(){
+		switchToPage("/instructions");
+	});
+
 }
 
 function logOutUser(result) {

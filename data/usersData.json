@@ -11,5 +11,9 @@
 	{
 		"password":"tree"
 	},
+	"":
+	{
+		"password":""
+	},
 	"currentUser":"default"
 }

@@ -7,7 +7,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars');
-
+var mongoose = require('mongoose');
 var index = require('./routes/indexRoute');
 var home = require('./routes/homeRoute');
 var placeholder = require('./routes/placeholderRoute');
@@ -15,11 +15,16 @@ var past = require('./routes/pastRoute');
 var settings = require('./routes/settingsRoute');
 var createAccount = require('./routes/createAccountRoute');
 var clientSessions = require("client-sessions");
+var instructions = require('./routes/instructionsRoute');
+var local_database_name = 'writetoremember';
+var local_database_uri  = 'mongodb://localhost/' + local_database_name
+var database_uri = process.env.MONGOLAB_URI || local_database_uri
+//var collections = ["users", "entries"];
+mongoose.connect(database_uri);//, collections);//might need to add  "collections"
 var app = express();
 
-
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3000);//or localhost:27017
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', handlebars());
 app.set('view engine', 'handlebars');
@@ -51,15 +56,20 @@ app.get('/home', home.view);
 app.get('/past', past.view);
 app.get('/settings', settings.view);
 app.get('/create', createAccount.view);
+app.get('/instructions', instructions.view);
 app.post('/signIn', index.signIn);
 app.post('/addEntry', past.addEntry);
 app.post('/saveSettings', settings.save);
 app.post('/create', createAccount.create);
 app.post('/getRandomEntry', past.getRandomEntry);
-
+app.post('/editEntry', past.editEntry);
+app.post('/removeEntry', past.removeEntry);
+app.post('/addEntry', past.addEntry);
+app.post('/instructions', instructions.view);
 
 // Example route
 // app.get('/users', user.list);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

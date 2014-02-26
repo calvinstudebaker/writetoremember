@@ -1,54 +1,71 @@
-var pastEntries = require("../data/pastData.json");
+//var pastEntries = require("../data/pastData.json");
+var models = require('../models');
 
 exports.view = function(req, res){
   if (!req.session.username) {
   	res.render('index');
   } else {
-    res.render('past', pastEntries);
+    //res.render('past', pastEntries);//this data needs to come from database!!!
+    models.Entry
+      .find({"user_id":req.session.username})
+      .sort('-date')
+      .exec(renderEntries);
+      
+    function renderEntries(err, entries) {
+      res.render('past', {'entries': entries});
+    }
   }
 };
 
 exports.addEntry = function(req, res){
   var data = req.body;
-  var entryID = req.params.id;
-  var newEntry = new Models.Entry({
-    "text": form_data.text,
-    "date": form_data.text
-    //deal with image!!!!
+  var userID = req.session.username;
+  var newEntry = new models.Entry({
+    "user_id" : userID,
+    "text": data.text,
+    "date": data.date,
+    "image": data.image//place-held in home.js
   });
-  newProject.save(afterSaving);
-
+  console.log(newEntry);
+  newEntry.save(afterSaving);
+  //var newEntry = req.body;
+  //pastEntries['entries'].unshift(newEntry);
+  //var response = new Object();
+  //response.status = "success";
+  //res.json(response);
   function afterSaving(err) { // this is a callback
-    if(err) {console.log(err); res.send(500); }
-  }
-}
+    if(err) {console.log(err); res.send(500);}
+    res.send(200);
+  };
+};
 
-exports.deleteEntry= function(req, res) {
-  var projectID = req.params.id;
-  models.Project
-    .find({"_id" : projectID})
+exports.removeEntry= function(req, res) {
+  models.Entry
+    .find({"_id":req.body.entryID, "user_id":req.session.username})
     .remove()
     .exec(afterRemoval);
 
   function afterRemoval(err, projects) {
-    if(err) console.log(err);
-    res.send();
+    if(err) {console.log(err); res.send(500);}
+    //switchToPage("/past");
+    res.send(200);
   }
-}
+};
 
+exports.editEntry = function(req, res){
+  models.Entry
+    .update({"_id":req.body.entryID, "user_id":req.session.username}, 
+    { $set: { "text" : req.body.text } }
+    )
+    .exec(afterEdit);
 
-function afterQuery(err, projects) {
-  if(err) console.log(err);
-  res.json(projects[0]);
-}
+  function afterEdit(err, projects) {
+    if(err) {console.log(err); res.send(500);}
+    res.send(200);
+    //switchToPage("/past");
+  }
+};
 
-  /**
-	var newEntry = req.body;
-	pastEntries['entries'].unshift(newEntry);
-	var response = new Object();
-	response.status = "success";
-	res.json(response);
-  **/
 
 exports.getRandomEntry = function(req, res) {
     var random_index = Math.floor((Math.random()*entries.length)+1);
