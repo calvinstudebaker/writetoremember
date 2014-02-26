@@ -15,17 +15,13 @@ exports.addEntry = function(req, res){
     "text": form_data.text,
     "date": form_data.text
     //deal with image!!!!
-})
+  });
   newProject.save(afterSaving);
 
   function afterSaving(err) { // this is a callback
-  if(err) {console.log(err); res.send(500); }
-}
-
-  function afterQuery(err, projects) {
-    if(err) console.log(err);
-    res.json(projects[0]);
+    if(err) {console.log(err); res.send(500); }
   }
+}
 
 exports.deleteEntry= function(req, res) {
   var projectID = req.params.id;
@@ -41,6 +37,11 @@ exports.deleteEntry= function(req, res) {
 }
 
 
+function afterQuery(err, projects) {
+  if(err) console.log(err);
+  res.json(projects[0]);
+}
+
   /**
 	var newEntry = req.body;
 	pastEntries['entries'].unshift(newEntry);
@@ -48,7 +49,6 @@ exports.deleteEntry= function(req, res) {
 	response.status = "success";
 	res.json(response);
   **/
-};
 
 exports.getRandomEntry = function(req, res) {
     var random_index = Math.floor((Math.random()*entries.length)+1);
