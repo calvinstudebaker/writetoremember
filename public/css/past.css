@@ -4,6 +4,15 @@
   margin-top: 20px;
 }
 
+ .editModalTextArea { 
+    border-style: none; 
+    border:none;
+    border-color: Transparent; 
+    overflow: auto; 
+    width: 100%;
+    height: 100%;       
+  }
+
 .background-image {
   position: fixed;
   left: 0;
