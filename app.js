@@ -15,7 +15,7 @@ var past = require('./routes/pastRoute');
 var settings = require('./routes/settingsRoute');
 var createAccount = require('./routes/createAccountRoute');
 var clientSessions = require("client-sessions");
-
+var instructions = require('./routes/instructionsRoute');
 var local_database_name = 'writetoremember';
 var local_database_uri  = 'mongodb://localhost/' + local_database_name
 var database_uri = process.env.MONGOLAB_URI || local_database_uri
@@ -56,14 +56,20 @@ app.get('/home', home.view);
 app.get('/past', past.view);
 app.get('/settings', settings.view);
 app.get('/create', createAccount.view);
+app.get('/instructions', instructions.view);
 app.post('/signIn', index.signIn);
 app.post('/addEntry', past.addEntry);
 app.post('/saveSettings', settings.save);
 app.post('/create', createAccount.create);
 app.post('/getRandomEntry', past.getRandomEntry);
+<<<<<<< HEAD
 app.post('/editEntry', past.editEntry);
 app.post('/removeEntry', past.removeEntry);
 app.post('/addEntry', past.addEntry);
+=======
+app.post('/instructions', instructions.view);
+
+>>>>>>> 953215cf6d9d7211f419834a4fd0154c5629693a
 
 // Example route
 // app.get('/users', user.list);
