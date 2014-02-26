@@ -62,14 +62,10 @@ app.post('/addEntry', past.addEntry);
 app.post('/saveSettings', settings.save);
 app.post('/create', createAccount.create);
 app.post('/getRandomEntry', past.getRandomEntry);
-<<<<<<< HEAD
 app.post('/editEntry', past.editEntry);
 app.post('/removeEntry', past.removeEntry);
 app.post('/addEntry', past.addEntry);
-=======
 app.post('/instructions', instructions.view);
-
->>>>>>> 953215cf6d9d7211f419834a4fd0154c5629693a
 
 // Example route
 // app.get('/users', user.list);
