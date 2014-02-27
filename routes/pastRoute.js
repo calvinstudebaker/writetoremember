@@ -37,6 +37,8 @@ exports.addEntry = function(req, res){
 };
 
 exports.removeEntry= function(req, res) {
+  var data = new Object();
+  data.entryID = req.body.entryID;
   models.Entry
     .find({"_id":req.body.entryID, "user_id":req.session.username})
     .remove()
@@ -45,7 +47,7 @@ exports.removeEntry= function(req, res) {
   function afterRemoval(err, projects) {
     if(err) {console.log(err); res.send(500);}
     //switchToPage("/past");
-    res.send(200);
+    res.json(data);
   }
 };
 
