@@ -21,22 +21,21 @@ function initializePage() {
 	$('#settingsButton').click(function(){
 		switchToPage("/settings");
 	});
-
 	$("#homeButton").click(function(){
 		switchToPage("/home");
 	});
 	$("#pastButton").click(function(){
 		switchToPage("/past");
 	});
-	$("#logoutButton").click(function(){
+	$("#logOutButton").click(function(){
 		switchToPage("/");
 		$.get("/logout", logOutUser);
 	});
 	$("#instructionsButton").click(function(){
 		switchToPage("/instructions");
 	});
-
 }
+
 
 function logOutUser(result) {
 	if(result.status == "success"){
