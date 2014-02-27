@@ -30,7 +30,7 @@ function addPastEntry(){//this is called when submit button is clicked!
 		var data = new Object();
 		data.date = getAbbreviatedDate();
 		data.text = $("#entry-form").val();
-		data.image = "image placeholder!!"; //change later
+		data.image = "image placeholder!!"; //change later for photo upload
 		console.log(data);
 		$.post("/addEntry", data, function(response){
 			switchToPage("/past");
@@ -56,6 +56,9 @@ function uploadMedia(){
 
 function getRandomEntry() {
 	$.post("/getRandomEntry", data, function(response){
+		//compose an html with the data from the response
+		//
+		//
 		$('#randomPlaceholder').html("TEST STUFF");
 	});
 }

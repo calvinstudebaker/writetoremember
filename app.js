@@ -60,7 +60,7 @@ app.get('/instructions', instructions.view);
 app.post('/signIn', index.signIn);
 app.post('/addEntry', past.addEntry);
 app.post('/saveSettings', settings.save);
-app.post('/create', createAccount.create);
+app.post('/createAccount', createAccount.createAccount);
 app.post('/getRandomEntry', past.getRandomEntry);
 app.post('/editEntry', past.editEntry);
 app.post('/removeEntry', past.removeEntry);

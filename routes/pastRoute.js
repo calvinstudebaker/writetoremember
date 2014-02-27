@@ -28,15 +28,10 @@ exports.addEntry = function(req, res){
   });
   console.log(newEntry);
   newEntry.save(afterSaving);
-  //var newEntry = req.body;
-  //pastEntries['entries'].unshift(newEntry);
-  //var response = new Object();
-  //response.status = "success";
-  //res.json(response);
   function afterSaving(err) { // this is a callback
     if(err) {console.log(err); res.send(500);}
     res.send(200);
-  };
+  }
 };
 
 exports.removeEntry= function(req, res) {

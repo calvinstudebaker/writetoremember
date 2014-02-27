@@ -30,23 +30,26 @@ function checkFields(){
 function createAccount(){
 
 	if(!checkFields()) return;
-
 	var username = $("#username").val();
 	var password = $("#password").val();
 	var retypePassword = $("#retypePassword").val();
-
+	if (password != retypePassword) {
+		showPasswordError();
+	} else {
 	var data = new Object();
 	data.username = username;
 	data.password = password;
 
-	$.post("/create", data, function(result){
-		alert(result.status);
-		if(result.status == "success"){
-			switchToPage("/home");
+	$.post("/createAccount", data, function(response){
+		console.log(response);
+		if(response.status == "success"){
+			switchToPage("/instructions");
 		}else{
 			showUsernameError();
 		}
+	
 	});
+	}
 };
 
 function showPasswordError(){
@@ -65,4 +68,5 @@ $(document).ready(function() {
 	$('#backButton').click(function(){
 		switchToPage("/");
 	});
+	//$('#createButton').click(createAccount);
 })
