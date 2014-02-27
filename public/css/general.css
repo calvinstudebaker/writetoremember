@@ -1,18 +1,4 @@
-/* applies to anything of class "example-class-selector" */
-.example-class-selector {
-	margin-top: 2em;
-}
 
-/* applies to any <p> descendants of an element of class "example-class-selector" */
-.example-class-selector p {
-	/* Colors are in hexadecimal: http://www.colorpicker.com/ */	
-	color: #CC00AA;
-}
-
-.jumbotron {
-	position: relative;
-	background: none;
-}
 
 .logOut {
   position:fixed;
@@ -57,10 +43,26 @@ input.fileButton{
   background: #1B9BE0;
 }
 
-.bottomButton{
-  width: 25%;
+.btn-primary { 
+  border-radius: 8px; 
+  border: 0px;
+  color:#ffffff; 
+  background: #1B9BE0;
 }
 
+.attachButton {
+  
+}
+
+.btn-primary:hover{
+background: #7A7A7A;
+}
+
+.bottomButton{
+  width: 25%;
+  border-radius: 0px;
+  border: transparent;
+}
 div.header{
      background-color: #1B9BE0;
      width: 100%;

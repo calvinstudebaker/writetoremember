@@ -57,8 +57,6 @@ function uploadMedia(){
 function getRandomEntry() {
 	$.post("/getRandomEntry", data, function(response){
 		//compose an html with the data from the response
-		//
-		//
 		$('#randomPlaceholder').html("TEST STUFF");
 	});
 }

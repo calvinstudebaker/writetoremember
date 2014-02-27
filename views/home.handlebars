@@ -33,11 +33,23 @@
 	<div class="container">
 	<!--change this to form!-->
 		<center>
-			<h1>Write Something!</h1>
+			<h3>Write Something!</h3>
 			<h4 id="errorPlaceholder" class="error"></h4>
 			<textarea id ="entry-form" class="form-control" rows="3"></textarea>
-			<br>
 			<!--<input type="file" id="photoUpload" accept="image/*" capture="camera">-->
+			<br>
+			<div class = "attachBar">
+				<center>
+					<button type="button" id="photoUpload" class="btn btn-primary btn-sm attachButton">
+					<span class="glyphicon glyphicon-camera">
+					<button type="button" id="videoUpload" class="btn btn-primary btn-sm attachButton">
+					<span class="glyphicon glyphicon-facetime-video">
+					<button type="button" id="moodUpload" class="btn btn-primary btn-sm attachButton">
+					<span class="glyphicon glyphicon-certificate">
+					<button type="button" id="tagUpload" class="btn btn-primary btn-sm attachButton">
+					<span class="glyphicon glyphicon-tag">
+				</center>
+			</div>
 			<br>
 			<button type="button" id ="submitButton" class="btn btn-primary">Submit</button>	
 		</center>
