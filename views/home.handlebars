@@ -9,6 +9,8 @@
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="/css/general.css" rel="stylesheet">
+	<link href="/slider/css/slider.css" rel = "stylesheet">
+	<link href="/css/home.css" rel="stylesheet">
 	<link rel="apple-touch-startup-image" href="/public/images/WtRIcon.png">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
@@ -38,16 +40,29 @@
 			<textarea id ="entry-form" class="form-control" rows="3"></textarea>
 			<!--<input type="file" id="photoUpload" accept="image/*" capture="camera">-->
 			<br>
+			<div id = "moodInputPlaceholder" class = "moodInput"></div>
+
+			<!--
+			<div class = "well hide">
+				<div class="slider slider-horizontal" id = "moodSlider" style = "width:140px;">
+					<div class = "slider-track"> 
+						<div class="slider-selection" style="left: 0%; width: 50%;"></div>
+						<div class="slider-handle round" style="left: 50%;"></div>
+						<div class="slider-handle round hide" style="left: 0%;"></div>
+					</div>
+				</div>
+			</div>
+-->
 			<div class = "attachBar">
 				<center>
 					<button type="button" id="photoUpload" class="btn btn-primary btn-sm attachButton">
 					<span class="glyphicon glyphicon-camera">
-					<button type="button" id="videoUpload" class="btn btn-primary btn-sm attachButton">
-					<span class="glyphicon glyphicon-facetime-video">
-					<button type="button" id="moodUpload" class="btn btn-primary btn-sm attachButton">
-					<span class="glyphicon glyphicon-certificate">
-					<button type="button" id="tagUpload" class="btn btn-primary btn-sm attachButton">
-					<span class="glyphicon glyphicon-tag">
+					<!--button type="button" id="videoUpload" class="btn btn-primary btn-sm attachButton">
+					<span class="glyphicon glyphicon-facetime-video"-->
+					<!--button type="button" id="moodUpload" class="btn btn-primary btn-sm attachButton">
+					<span class="glyphicon glyphicon-certificate"-->
+					<!--button type="button" id="tagUpload" class="btn btn-primary btn-sm attachButton">
+					<span class="glyphicon glyphicon-tag"-->
 				</center>
 			</div>
 			<br>
@@ -73,5 +88,6 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/general.js"></script>
 <script src="/js/home.js"></script>
+<script src="/js/bootstrap-slider.js"></script>
 </body>
 </html>

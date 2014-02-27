@@ -31,6 +31,7 @@ function addPastEntry(){//this is called when submit button is clicked!
 		data.date = getAbbreviatedDate();
 		data.text = $("#entry-form").val();
 		data.image = "image placeholder!!"; //change later for photo upload
+		//data.mood_index = $('#mood-input').val());
 		console.log(data);
 		$.post("/addEntry", data, function(response){
 			switchToPage("/past");
@@ -53,6 +54,13 @@ function uploadMedia(){
 	}
 }
 
+function uploadMood() {
+	/*$('#moodInputPlaceholder').html('<select class="form-control input-sm" placeholder = "Enter a happiness index">
+					<option value="">1</option><option value="">2</option><option value="">3</option>
+					<option value="">4</option><option value="">5</option>
+				</select>');
+	//$("#moodSlider").slider(show);*/
+}
 
 function getRandomEntry() {
 	$.post("/getRandomEntry", data, function(response){
@@ -70,7 +78,7 @@ $(document).ready(function() {
 	$("#pastButton").click(function(){
 		switchToPage("/past");
 	});
-
 	$("#submitButton").click(addPastEntry);
 	$("#uploadTest").click(uploadMedia);
+	//$("#uploadMood").click(uploadMood);
 });

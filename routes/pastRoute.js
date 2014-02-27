@@ -20,11 +20,13 @@ exports.view = function(req, res){
 exports.addEntry = function(req, res){
   var data = req.body;
   var userID = req.session.username;
+  //var mood_index
   var newEntry = new models.Entry({
     "user_id" : userID,
     "text": data.text,
     "date": data.date,
-    "image": data.image//place-held in home.js
+    "image": data.image,//place-held in home.js
+   // "mood_index" : data.mood_index
   });
   console.log(newEntry);
   newEntry.save(afterSaving);
