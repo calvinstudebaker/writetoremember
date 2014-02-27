@@ -62,7 +62,6 @@ exports.editEntry = function(req, res){
 };
 
 
-
 exports.getRandomEntry = function(req, res) {
     var random_index = Math.floor((Math.random()*entries.length)+1);
     var random_entry = pastEntries['entries'][random_index];
