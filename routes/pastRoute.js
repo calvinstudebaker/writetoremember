@@ -13,10 +13,14 @@ exports.view = function(req, res){
       .exec(renderEntries);
       
     function renderEntries(err, entries) {
-      if (entries) {
+      console.log("entries is of form:");
+      console.log(entries);
+      //console.log(type(entries));
+      if (!entries) {
         res.render('past', {'entries': entries});
       } else {
-        res.render('index');
+        console.log("it got to the renderentries in pastroute");
+        res.render('pastEmpty');
       }
     }
   }
@@ -25,6 +29,9 @@ exports.view = function(req, res){
 exports.addEntry = function(req, res){
   var data = req.body;
   var userID = req.session.username;
+  if(!data.mood_index) {
+    data.mood_index = 0;
+  }
 
   fs.readFile(req.files.photoUpload.path, function(err, data){
     var imageName = req.files.photoUpload.name;
@@ -33,14 +40,12 @@ exports.addEntry = function(req, res){
       res.redirect("/uploads/fullsize/" + imageName);
     });
   });
-
-  //var mood_index
   var newEntry = new models.Entry({
     "user_id" : userID,
     "text": data.text,
     "date": data.date,
     "image": data.image,//place-held in home.js
-   // "mood_index" : data.mood_index
+    //"mood_index" : data.mood_index
   });
   console.log(newEntry);
   newEntry.save(afterSaving);

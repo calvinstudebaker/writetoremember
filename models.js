@@ -13,7 +13,7 @@ var EntrySchema = new Mongoose.Schema({
         "text": String,
 		"date": String,
 		"image": String,
-		//"mood_index" : Number
+		"mood_index" : Number
 });
 
 exports.User = Mongoose.model('User', UserSchema);
