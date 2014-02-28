@@ -38,6 +38,7 @@ app.use(express.cookieParser('Intro HCI secret key'));
 app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.bodyParser());
 
 
 // development only
@@ -68,6 +69,16 @@ app.post('/editEntry', past.editEntry);
 app.post('/removeEntry', past.removeEntry);
 app.post('/addEntry', past.addEntry);
 app.post('/instructions', instructions.view);
+
+
+//see photo uploaded to server
+app.get('/uploads/fullsize/:file', function (req, res){
+	file = req.params.file;
+	var img = fs.readFileSync(__dirname + "/uploads/fullsize/" + file);
+	res.writeHead(200, {'Content-Type': 'image/jpg' });
+	res.end(img, 'binary');
+
+});
 
 // Example route
 // app.get('/users', user.list);

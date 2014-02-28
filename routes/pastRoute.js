@@ -1,5 +1,6 @@
 //var pastEntries = require("../data/pastData.json");
 var models = require('../models');
+var fs = require('fs');
 
 exports.view = function(req, res){
   if (!req.session.username) {
@@ -24,6 +25,15 @@ exports.view = function(req, res){
 exports.addEntry = function(req, res){
   var data = req.body;
   var userID = req.session.username;
+
+  fs.readFile(req.files.photoUpload.path, function(err, data){
+    var imageName = req.files.photoUpload.name;
+    var newPath = __dirname + "/uploads/fullsize/" + imageName;
+    fs.writeFile(newPath, data, function(err){
+      res.redirect("/uploads/fullsize/" + imageName);
+    });
+  });
+
   //var mood_index
   var newEntry = new models.Entry({
     "user_id" : userID,
