@@ -15,4 +15,12 @@ $(document).ready(function() {
 			$(this).attr('selected', 'selected');
 		}
 	});
-})
+
+	$("#testPush").click(testPushNotification);
+});
+
+function testPushNotification(){
+	$.get("/testPush", function(response){
+		if(response.status == "success") alert("sent");
+	});
+}

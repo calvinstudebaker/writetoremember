@@ -13,6 +13,7 @@ var home = require('./routes/homeRoute');
 var placeholder = require('./routes/placeholderRoute');
 var past = require('./routes/pastRoute');
 var settings = require('./routes/settingsRoute');
+var push = require('./routes/pushRoute');
 var createAccount = require('./routes/createAccountRoute');
 var clientSessions = require("client-sessions");
 var instructions = require('./routes/instructionsRoute');
@@ -57,6 +58,7 @@ app.get('/past', past.view);
 app.get('/settings', settings.view);
 app.get('/create', createAccount.view);
 app.get('/instructions', instructions.view);
+app.get('/testPush', push.testPush)
 app.post('/signIn', index.signIn);
 app.post('/addEntry', past.addEntry);
 app.post('/saveSettings', settings.save);
