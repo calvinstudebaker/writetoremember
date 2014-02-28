@@ -12,7 +12,11 @@ exports.view = function(req, res){
       .exec(renderEntries);
       
     function renderEntries(err, entries) {
-      res.render('past', {'entries': entries});
+      if (entries) {
+        res.render('past', {'entries': entries});
+      } else {
+        res.render('index');
+      }
     }
   }
 };
