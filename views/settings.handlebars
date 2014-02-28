@@ -20,17 +20,20 @@
 </head>
 
 <body>
+	<div class = "content">
 	<div class="header">
 		<center>
 		<span class="logo">Settings</span>
 		</button>
 		</center>
   	</div>
+  	<div class ="logOut">
+  	<button type = "button" id = "logOutButton" class = "btn btn-primary btn-sm">Log Out</button>
+  </div>
 	<div class="container">
 		<center>
 			<span>Remind Me to Write: </span>
 			<select name="rate" id="rate">
-	   			<option value="minutely">Minutely</option>
 	   			<option value="hourly">Hourly</option>
 	   			<option value="daily">Daily</option>
 	   			<option value="weekly">Weekly</option>
@@ -39,6 +42,7 @@
 	   		<button type="button" id="testPush" class="flatButton">Test Push Notification</button>
 
 	   		<div id="rateKey" class={{rate}}></div>	
+	   		<!--button type = "button" id = "apiTest" class="btn btn-primary btn-lg">Test API</button-->
 		</center>
 	</div>
 		<div class ="footer">
@@ -51,9 +55,10 @@
 			<button type="button" id="settingsButton" class="btn btn-primary btn-lg bottomButton">
 			<span class="glyphicon glyphicon-cog">
 			<button type="button" id="instructionsButton" class="btn btn-primary btn-lg bottomButton">
-			<span class="glyphicon glyphicon-check">
+			<span class="glyphicon glyphicon-book">
 		</center>
 	</div>
+</div>
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/general.js"></script>

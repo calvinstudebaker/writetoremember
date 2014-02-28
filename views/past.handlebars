@@ -27,12 +27,17 @@
 </head>
 
 <body>
+	<div class = "content">
 	<div class="header">
 		<center>
 		<span class="logo">Past</span>
 		</button>
 		</center>
   	</div>
+  	<div class ="logOut">
+
+  	<button type = "button" id = "logOutButton" class = "btn btn-primary btn-sm">Log Out</button>
+  </div>
 	<div class="container">
 		<center>
 			<div class="pastEntries">
@@ -41,6 +46,7 @@
 					<tr> <div class = "entryRow" id ="{{_id}}">
 						<td> {{date}}</td> 
 						<td> {{text}} </td>
+						<!--td> <h5>Happiness: {{mood_index}} </h5> </td-->
 
 						<td><a data-toggle="modal" href="#editModal_{{id}}" class = "btn btn-primary btn-sm pastButton">edit entry</a>
 							<div class="modal" id="editModal_{{id}}">
@@ -54,6 +60,7 @@
 							     <div class="modal-footer">
 							     	<button type ="button" href="#" id = "{{id}}" class="btn btn-primary pastButton saveEditsButton">Save changes</button>
 						         </div> <!-- todo: connect saveEditsButton to database--> 
+
 						      	</div>
 						     </div>
 						</div></td>
@@ -77,8 +84,9 @@
 			<button type="button" id="settingsButton" class="btn btn-primary btn-lg bottomButton">
 			<span class="glyphicon glyphicon-cog">
 			<button type="button" id="instructionsButton" class="btn btn-primary btn-lg bottomButton">
-			<span class="glyphicon glyphicon-check">
+			<span class="glyphicon glyphicon-book">
 		</center>
 	</div>
+</div>
 </body>
 </html>

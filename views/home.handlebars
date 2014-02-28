@@ -9,6 +9,8 @@
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="/css/general.css" rel="stylesheet">
+	<link href="/slider/css/slider.css" rel = "stylesheet">
+	<link href="/css/home.css" rel="stylesheet">
 	<link rel="apple-touch-startup-image" href="/public/images/WtRIcon.png">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
@@ -21,20 +23,49 @@
 </head>
 
 <body>
+<div class = "content">
 	<div class="header">
 		<center>
 		<span class="logo">Home</span>
 		</button>
 		</center>
   	</div>
+  	<div class ="logOut">
+  	<button type = "button" id = "logOutButton" class = "btn btn-primary btn-sm">Log Out</button>
+  </div>
 	<div class="container">
 	<!--change this to form!-->
 		<center>
-			<h1>Write Something!</h1>
+			<h4 class = "home-header">Write something:</h4>
 			<h4 id="errorPlaceholder" class="error"></h4>
 			<textarea id ="entry-form" class="form-control" rows="3"></textarea>
-			<br>
 			<!--<input type="file" id="photoUpload" accept="image/*" capture="camera">-->
+			<br>
+			<div id = "moodInputPlaceholder" class = "moodInput"></div>
+
+			<!--
+			<div class = "well hide">
+				<div class="slider slider-horizontal" id = "moodSlider" style = "width:140px;">
+					<div class = "slider-track"> 
+						<div class="slider-selection" style="left: 0%; width: 50%;"></div>
+						<div class="slider-handle round" style="left: 50%;"></div>
+						<div class="slider-handle round hide" style="left: 0%;"></div>
+					</div>
+				</div>
+			</div>
+-->
+			<div class = "attachBar">
+				<center>
+					<button type="button" id="photoUpload" class="btn btn-primary btn-sm attachButton">
+					<span class="glyphicon glyphicon-camera">
+					<!--button type="button" id="videoUpload" class="btn btn-primary btn-sm attachButton">
+					<span class="glyphicon glyphicon-facetime-video"-->
+					<!--button type="button" id="moodUpload" class="btn btn-primary btn-sm attachButton">
+					<span class="glyphicon glyphicon-certificate"-->
+					<!--button type="button" id="tagUpload" class="btn btn-primary btn-sm attachButton">
+					<span class="glyphicon glyphicon-tag"-->
+				</center>
+			</div>
 			<br>
 			<button type="button" id ="submitButton" class="btn btn-primary">Submit</button>	
 		</center>
@@ -51,12 +82,14 @@
 			<button type="button" id="settingsButton" class="btn btn-primary btn-lg bottomButton">
 			<span class="glyphicon glyphicon-cog">
 			<button type="button" id="instructionsButton" class="btn btn-primary btn-lg bottomButton">
-			<span class="glyphicon glyphicon-check">
+			<span class="glyphicon glyphicon-book">
 		</center>
 	</div>
+</div>
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/general.js"></script>
 <script src="/js/home.js"></script>
+<script src="/js/bootstrap-slider.js"></script>
 </body>
 </html>

@@ -12,7 +12,11 @@ exports.view = function(req, res){
       .exec(renderEntries);
       
     function renderEntries(err, entries) {
-      res.render('past', {'entries': entries});
+      if (entries) {
+        res.render('past', {'entries': entries});
+      } else {
+        res.render('index');
+      }
     }
   }
 };
@@ -20,26 +24,25 @@ exports.view = function(req, res){
 exports.addEntry = function(req, res){
   var data = req.body;
   var userID = req.session.username;
+  //var mood_index
   var newEntry = new models.Entry({
     "user_id" : userID,
     "text": data.text,
     "date": data.date,
-    "image": data.image//place-held in home.js
+    "image": data.image,//place-held in home.js
+   // "mood_index" : data.mood_index
   });
   console.log(newEntry);
   newEntry.save(afterSaving);
-  //var newEntry = req.body;
-  //pastEntries['entries'].unshift(newEntry);
-  //var response = new Object();
-  //response.status = "success";
-  //res.json(response);
   function afterSaving(err) { // this is a callback
     if(err) {console.log(err); res.send(500);}
     res.send(200);
-  };
+  }
 };
 
 exports.removeEntry= function(req, res) {
+  var data = new Object();
+  data.entryID = req.body.entryID;
   models.Entry
     .find({"_id":req.body.entryID, "user_id":req.session.username})
     .remove()
@@ -48,7 +51,7 @@ exports.removeEntry= function(req, res) {
   function afterRemoval(err, projects) {
     if(err) {console.log(err); res.send(500);}
     //switchToPage("/past");
-    res.send(200);
+    res.json(data);
   }
 };
 
