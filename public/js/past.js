@@ -20,6 +20,9 @@ $(document).ready(function() {
 		var data = new Object();
 		data.entryID = entryID;
 		$.post("/removeEntry", data, function(response){
+			var entryID = '#' + response.entryID;
+			console.log(entryID);
+		//	$("entryID").hide("fast");//this isn't working. 
 			switchToPage("/past");
 		});
 	});

@@ -26,6 +26,30 @@ body{
      min-width: 200px;
 }
 
+.content:before {
+  content: "";
+  position: fixed;
+  background-size: 110%;
+  background-position: center;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  opacity: 0.3;
+  display: block;
+  background-image: url('http://www.thatscrafty.co.uk/user/products/large/indigoblu-cling-mounted-rubber-stamp-script-background-47029-p.jpg');
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  position: fixed;
+  margin-right: 0;
+  margin-left: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  
+}
 div.footer{
   vertical-align: bottom;
   position:fixed;
@@ -33,6 +57,7 @@ div.footer{
   bottom:0;
 }
 
+/*the things I changed the color for are below. the old color is #1B9BE0*/
 
 input.fileButton{
   width: 240px;
@@ -40,31 +65,50 @@ input.fileButton{
   border: 0px;
   font-size: 120%;
   color:#ffffff; 
-  background: #1B9BE0;
+  background: #6FCFF7;
 }
 
 .btn-primary { 
   border-radius: 8px; 
   border: 0px;
   color:#ffffff; 
-  background: #1B9BE0;
-}
-
-.attachButton {
-  
+  background: #6FCFF7
 }
 
 .btn-primary:hover{
 background: #7A7A7A;
 }
 
+.home-header {
+  color: #636363;
+}
 .bottomButton{
   width: 25%;
   border-radius: 0px;
   border: transparent;
 }
+
+button.flatButton{
+  box-sizing: border-box;
+  border-radius: 8px; 
+  width:240px;
+  height:40px;
+  border: 0px;
+  font-size: 120%;
+  color:#ffffff; 
+  background: #6FCFF7;
+}
+
+button.flatButton:hover{
+background: #7A7A7A;
+}
+
+button.flatButton:active{
+  box-shadow: inset 0 0 10px #000000;
+}
+
 div.header{
-     background-color: #1B9BE0;
+     background-color: #6FCFF7;
      width: 100%;
      height: 50px;
      text-align: center;
@@ -104,26 +148,6 @@ span.logo{
 
 
 
-
-
-button.flatButton{
-  box-sizing: border-box;
-  border-radius: 8px; 
-  width:240px;
-  height:40px;
-  border: 0px;
-  font-size: 120%;
-  color:#ffffff; 
-  background: #1B9BE0;
-}
-
-button.flatButton:hover{
-background: #7A7A7A;
-}
-
-button.flatButton:active{
-  box-shadow: inset 0 0 10px #000000;
-}
 
 input{
   margin: 10px 0 10px 0;
