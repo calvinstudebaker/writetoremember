@@ -26,11 +26,14 @@ exports.addEntry = function(req, res){
   var data = req.body;
   var userID = req.session.username;
 
-  fs.readFile(req.files.photoUpload.path, function(err, data){
-    var imageName = req.files.photoUpload.name;
+  var files = req.files;
+  console.log(files);
+
+  fs.readFile(req.files.image.path, function(err, data){
+    var imageName = req.files.image.name;
     var newPath = __dirname + "/uploads/fullsize/" + imageName;
     fs.writeFile(newPath, data, function(err){
-      res.redirect("/uploads/fullsize/" + imageName);
+      res.redirect("/uploads/fullsize/" + imageName); //to see photo. Change to redirect to /past if you don't want to see the photo
     });
   });
 
