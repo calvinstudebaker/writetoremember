@@ -57,7 +57,7 @@ div.footer{
   bottom:0;
 }
 
-/*the things I changed the color for are below. the old color is #1B9BE0*/
+*the things I changed the color for are below. the old color is #1B9BE0*/
 
 input.fileButton{
   width: 240px;
@@ -74,12 +74,21 @@ input.fileButton{
   color:#ffffff; 
   background: #6FCFF7
 }
-
+input[type="submit"]{
+  box-sizing: border-box;
+  border-radius: 8px; 
+  width:240px;
+  height:40px;
+  border: 0px;
+  font-size: 120%;
+  color:#ffffff; 
+  background: #6FCFF7;
+}
 .btn-primary:hover{
 background: #7A7A7A;
 }
 
-.home-header {
+.grey-header {
   color: #636363;
 }
 .bottomButton{
@@ -192,16 +201,6 @@ input[type="password"] {
   width: 240px;
 }
 
-input[type="submit"]{
-  box-sizing: border-box;
-  border-radius: 8px; 
-  width:240px;
-  height:40px;
-  border: 0px;
-  font-size: 120%;
-  color:#ffffff; 
-  background: #1B9BE0;
-}
 
 input[type="submit"]:hover{
   background: #4DCDFF;
@@ -212,7 +211,7 @@ input[type="submit"]:active {
 }
 
 input.highlighted{
-     box-shadow: 0 0 4px 1px #1B9BE0;
+     box-shadow:0 0 4px 1px #1B9BE0;
      outline: 0;
 }
 
