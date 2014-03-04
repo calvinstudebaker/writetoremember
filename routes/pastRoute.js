@@ -30,7 +30,7 @@ exports.addEntry = function(req, res){
     var imageName = req.files.photoUpload.name;
     var newPath = __dirname + "/uploads/fullsize/" + imageName;
     fs.writeFile(newPath, data, function(err){
-      res.redirect("/uploads/fullsize/" + imageName);
+      res.redirect("/uploads/fullsize/" + imageName); //to see photo. Change to redirect to /past if you don't want to see the photo
     });
   });
 
