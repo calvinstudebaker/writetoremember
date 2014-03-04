@@ -33,21 +33,30 @@ exports.addEntry = function(req, res){
     data.mood_index = 0;
   }
 
-  var files = req.files;
-  console.log(files);
+  var imageName;
 
+  //adapted from http://tonyspiro.com/uploading-and-resizing-an-image-using-node-js/
   fs.readFile(req.files.image.path, function(err, data){
-    var imageName = req.files.image.name;
-    var newPath = __dirname + "/uploads/fullsize/" + imageName;
-    fs.writeFile(newPath, data, function(err){
-      res.redirect("/uploads/fullsize/" + imageName); //to see photo. Change to redirect to /past if you don't want to see the photo
-    });
+    imageName = req.files.image.name;
+
+    if(!imageName){
+      console.log("There was an error")
+      res.redirect("/home");
+      res.end();
+    } else{
+      var newPath = __dirname + "/uploads/images/" + imageName;
+      fs.writeFile(newPath, data, function(err){
+        res.redirect("/past");
+      });
+    }
   });
+
+  var imagePath = "/uploads/images/" + imageName;  
   var newEntry = new models.Entry({
     "user_id" : userID,
     "text": data.text,
     "date": data.date,
-    "image": data.image,//place-held in home.js
+    "image": "uploads/",//place-held in home.js
     //"mood_index" : data.mood_index
   });
   console.log(newEntry);
