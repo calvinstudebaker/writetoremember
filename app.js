@@ -2,7 +2,7 @@
 /**
  * Module dependencies.
  */
-
+var fs = require('fs');
 var express = require('express');
 var http = require('http');
 var path = require('path');
@@ -20,25 +20,26 @@ var instructions = require('./routes/instructionsRoute');
 var local_database_name = 'writetoremember';
 var local_database_uri  = 'mongodb://localhost/' + local_database_name
 var database_uri = process.env.MONGOLAB_URI || local_database_uri
-//var collections = ["users", "entries"];
 mongoose.connect(database_uri);//, collections);//might need to add  "collections"
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);//or localhost:27017
-app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', handlebars());
-app.set('view engine', 'handlebars');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(express.cookieParser('Intro HCI secret key'));
-app.use(express.session());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.bodyParser());
+app.configure(function () {
+	app.set('port', process.env.PORT || 3000);//or localhost:27017
+	app.set('views', path.join(__dirname, 'views'));
+	app.engine('handlebars', handlebars());
+	app.set('view engine', 'handlebars');
+	app.use(express.favicon());
+	app.use(express.bodyParser({ keepExtensions: true, uploadDir: __dirname + '/uploads' }));
+	app.use(express.logger('dev'));
+	app.use(express.json());
+	app.use(express.urlencoded());
+	app.use(express.methodOverride());
+	app.use(express.cookieParser('Intro HCI secret key'));
+	app.use(express.session());
+	app.use(app.router);
+	app.use(express.static(path.join(__dirname, 'public')));
+});
 
 
 // development only
@@ -47,7 +48,7 @@ if ('development' == app.get('env')) {
 }
 
 app.use(clientSessions({
-  secret: '0GBlJZ9EKBt2Zbi2flRPvztcaskdjfaksdjfCewBxXK' // CHANGE THIS!
+  secret: '0GBlJZ9EKBt2Zbi2flRPvzturukdjfaksdjfCewBxXK' // CHANGE THIS!
 }));
 
 
@@ -61,7 +62,6 @@ app.get('/create', createAccount.view);
 app.get('/instructions', instructions.view);
 app.get('/testPush', push.testPush)
 app.post('/signIn', index.signIn);
-app.post('/addEntry', past.addEntry);
 app.post('/saveSettings', settings.save);
 app.post('/createAccount', createAccount.createAccount);
 app.post('/getRandomEntry', past.getRandomEntry);

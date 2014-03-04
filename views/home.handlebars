@@ -38,10 +38,16 @@
 		<center>
 			<h4 class = "home-header">Write something:</h4>
 			<h4 id="errorPlaceholder" class="error"></h4>
-			<textarea id ="entry-form" class="form-control" rows="3"></textarea>
+
+			<form method="post" action="/addEntry" enctype="multipart/form-data">
+				<textarea id ="entry-form" class="form-control" rows="3" placeholder="Write something..." required="true" ></textarea>
+				<input type='file' id='photoUpload' accept='image/*' capture='camera' name='image' class="btn btn-primary btn-sm attachButton"/> <span class="glyphicon glyphicon-camera">
+				<input type="submit" id="submitButton" class="flatButton"/>
+			</form>
+			
 			<!--<input type="file" id="photoUpload" accept="image/*" capture="camera">-->
-			<br>
-			<div id = "moodInputPlaceholder" class = "moodInput"></div>
+			<!-- <br> -->
+			<!-- <div id = "moodInputPlaceholder" class = "moodInput"></div> -->
 
 			<!--
 			<div class = "well hide">
@@ -54,20 +60,20 @@
 				</div>
 			</div>
 -->
-			<div class = "attachBar">
-				<center>
-					<input type="file" id="photoUpload" accept = "image/*" capture = "camera" name = "image" class="btn btn-primary btn-sm attachButton">
-					<span class="glyphicon glyphicon-camera">
+			<!-- <div class = "attachBar"> -->
+				<!-- <center> -->
+					<!-- <input type="file" id="photoUpload" accept = "image/*" capture = "camera" name = "image" class="btn btn-primary btn-sm attachButton"> -->
+					<!-- <span class="glyphicon glyphicon-camera"> -->
 					<!--button type="button" id="videoUpload" class="btn btn-primary btn-sm attachButton">
 					<span class="glyphicon glyphicon-facetime-video"-->
 					<!--button type="button" id="moodUpload" class="btn btn-primary btn-sm attachButton">
 					<span class="glyphicon glyphicon-certificate"-->
 					<!--button type="button" id="tagUpload" class="btn btn-primary btn-sm attachButton">
 					<span class="glyphicon glyphicon-tag"-->
-				</center>
-			</div>
-			<br>
-			<button type="button" id ="submitButton" class="btn btn-primary">Submit</button>	
+				<!-- </center> -->
+			<!-- </div> -->
+			<!-- <br> -->
+			<!-- <button type="button" id ="submitButton" class="btn btn-primary">Submit</button>	 -->
 		</center>
 		<!--end to form!-->
 

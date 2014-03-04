@@ -30,7 +30,7 @@ function addPastEntry(){//this is called when submit button is clicked!
 		var data = new Object();
 		data.date = getAbbreviatedDate();
 		data.text = $("#entry-form").val();
-		data.image = "image placeholder!!"; //change later for photo upload
+		data.image = "image placeholder!!";
 		//data.mood_index = $('#mood-input').val());
 		console.log(data);
 		$.post("/addEntry", data, function(response){
@@ -38,19 +38,6 @@ function addPastEntry(){//this is called when submit button is clicked!
 		});
 	} else {
 		showEntryError();
-	}
-}
-
-function hasGetUserMedia() {
-  	return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
-            navigator.mozGetUserMedia || navigator.msGetUserMedia);
-}
-
-function uploadMedia(){
-	if (hasGetUserMedia()) {
-	  alert('werrrd');
-	} else {
-	  alert('accessing user media is not supported in your browser');
 	}
 }
 
@@ -75,10 +62,6 @@ function showEntryError() {
 
 $(document).ready(function() {
 	console.log(getDate());
-	$("#pastButton").click(function(){
-		switchToPage("/past");
-	});
 	$("#submitButton").click(addPastEntry);
-	$("#uploadTest").click(uploadMedia);
 	//$("#uploadMood").click(uploadMood);
 });
