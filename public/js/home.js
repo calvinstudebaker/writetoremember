@@ -1,4 +1,6 @@
 //adapted from: https://facultystaff.richmond.edu/~creamer/web/js/date.html
+
+
 function getDate(){
 	// Array of day names
 	var dayNames = new Array("Sunday","Monday","Tuesday","Wednesday",
@@ -31,7 +33,7 @@ function addPastEntry(){//this is called when submit button is clicked!
 		data.date = getAbbreviatedDate();
 		data.text = $("#entry-form").val();
 		data.image = "image placeholder!!";
-		//data.mood_index = $('#mood-input').val());
+		data.mood_index = $('#mood-slider').slider("getValue");
 		console.log(data);
 		$.post("/addEntry", data, function(response){
 			switchToPage("/past");
@@ -62,6 +64,8 @@ function showEntryError() {
 
 $(document).ready(function() {
 	console.log(getDate());
+	//$("#submitButton").click(addPastEntry);
+	$("#mood-slider").slider();
 	//$("#submitButton").click(addPastEntry);
 	//$("#uploadMood").click(uploadMood);
 });

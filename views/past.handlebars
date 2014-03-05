@@ -46,7 +46,7 @@
 					<tr> <div class = "entryRow" id ="{{_id}}">
 						<td> {{date}}</td> 
 						<td> {{text}} </td>
-						<!--td> <h5>Happiness: {{mood_index}} </h5> </td-->
+						<td> <h5>{{mood_index}}</h5> </td>
 
 						<td><a data-toggle="modal" href="#editModal_{{id}}" class = "btn btn-primary btn-sm pastButton">edit entry</a>
 							<div class="modal" id="editModal_{{id}}">
@@ -56,7 +56,8 @@
 							         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 							         <h4 class="modal-title edi">Edit Entry</h4>
 							    </div>
-							    <textarea class="modal-body editModalTextArea" id ="edited_text_field_{{id}}">{{text}}</textarea>
+							    <textarea class="modal-body editModalTextArea" id ="edited_text_field_{{id}}">{{text}}
+							   </textarea>
 							     <div class="modal-footer">
 							     	<button type ="button" href="#" id = "{{id}}" class="btn btn-primary pastButton saveEditsButton">Save changes</button>
 						         </div> <!-- todo: connect saveEditsButton to database--> 
