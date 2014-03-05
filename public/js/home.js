@@ -62,6 +62,6 @@ function showEntryError() {
 
 $(document).ready(function() {
 	console.log(getDate());
-	$("#submitButton").click(addPastEntry);
+	//$("#submitButton").click(addPastEntry);
 	//$("#uploadMood").click(uploadMood);
 });
