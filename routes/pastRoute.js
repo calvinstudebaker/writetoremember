@@ -40,7 +40,7 @@ exports.addEntry = function(req, res){
     imageName = req.files.image.name;
 
     if(!imageName){
-      console.log("There was an error")
+      console.log("There was an error in the photo upload!");
       res.redirect("/home");
       res.end();
     } else{
@@ -56,11 +56,13 @@ exports.addEntry = function(req, res){
     "user_id" : userID,
     "text": data.text,
     "date": data.date,
-    "image": "uploads/",//place-held in home.js
-    //"mood_index" : data.mood_index
+    "image": "uploads/",
+    "mood_index" : data.mood_index
   });
+  
   console.log(newEntry);
   newEntry.save(afterSaving);
+
   function afterSaving(err) { // this is a callback
     if(err) {console.log(err); res.send(500);}
     res.send(200);

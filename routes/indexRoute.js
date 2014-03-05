@@ -22,11 +22,11 @@ exports.signIn = function(req, res) {
 
 	function afterSignIn(err, project) {
 		console.log("project is " + project);
-		if (project!=null) {
+		if (project==null || project == []) {//check this! some .isempty?
+			response.status = "failure";
+		} else {
 			response.status = "success";
 			req.session.username = username;
-		} else {
-			response.status = "failure";
 		}
 		res.json(response);
 	}

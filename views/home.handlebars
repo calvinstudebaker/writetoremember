@@ -9,7 +9,7 @@
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="/css/general.css" rel="stylesheet">
-	<link href="/slider/css/slider.css" rel = "stylesheet">
+	<link href="css/slider.css" rel = "stylesheet">
 	<link href="/css/home.css" rel="stylesheet">
 	<link rel="apple-touch-startup-image" href="/public/images/WtRIcon.png">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -41,7 +41,16 @@
 
 			<form method="post" action="/addEntry" enctype="multipart/form-data">
 				<textarea id ="entry-form" class="form-control" rows="3" placeholder="Write something..." required="true" ></textarea>
-				<input type='file' id='photoUpload' accept='image/*' capture='camera' name='image' class="btn btn-primary btn-sm attachButton"/> <span class="glyphicon glyphicon-camera">
+				<input type='file' id='photoUpload' accept='image/*' capture='camera' name='image' class="btn btn-primary btn-sm attachButton"/> 
+
+				<div class = "well">
+					<div class="slider slider-horizontal" id = "mood-slider">
+						<div class = "slider-track"> 
+							<div class="slider-selection" style="left: 0%; width: 50%;"></div>
+							<!--div class="slider-handle round" style="left: 0%;"></div-->
+						</div>
+					</div>
+				</div>
 				<input type="submit" id="submitButton" class="flatButton"/>
 			</form>
 			
@@ -49,17 +58,7 @@
 			<!-- <br> -->
 			<!-- <div id = "moodInputPlaceholder" class = "moodInput"></div> -->
 
-			<!--
-			<div class = "well hide">
-				<div class="slider slider-horizontal" id = "moodSlider" style = "width:140px;">
-					<div class = "slider-track"> 
-						<div class="slider-selection" style="left: 0%; width: 50%;"></div>
-						<div class="slider-handle round" style="left: 50%;"></div>
-						<div class="slider-handle round hide" style="left: 0%;"></div>
-					</div>
-				</div>
-			</div>
--->
+
 			<!-- <div class = "attachBar"> -->
 				<!-- <center> -->
 					<!-- <input type="file" id="photoUpload" accept = "image/*" capture = "camera" name = "image" class="btn btn-primary btn-sm attachButton"> -->
