@@ -19,6 +19,7 @@ $(document).ready(function() {
 		var data = new Object();
 		data.entryID = entryID;
 		//should add a "are you sure you want to delete this entry?" popup here
+		
 		$.post("/removeEntry", data, function(response){
 			var entryID = '#' + response.entryID;
 			console.log(entryID);

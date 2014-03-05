@@ -59,7 +59,7 @@ exports.addEntry = function(req, res){
     "image": "uploads/",
     "mood_index" : data.mood_index
   });
-  
+
   console.log(newEntry);
   newEntry.save(afterSaving);
 
