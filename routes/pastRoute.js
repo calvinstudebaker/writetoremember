@@ -33,32 +33,41 @@ exports.addEntry = function(req, res){
     data.mood_index = 0;
   }
 
-  var imageName;
+  var date = getAbbreviatedDate();
 
   //adapted from http://tonyspiro.com/uploading-and-resizing-an-image-using-node-js/
   fs.readFile(req.files.image.path, function(err, data){
     imageName = req.files.image.name;
 
     if(!imageName){
-      console.log("There was an error in the photo upload!");
-      res.redirect("/home");
-      res.end();
+      console.log("No image found");
+      imagePath = "none";
+      res.send(200);
     } else{
-      var newPath = __dirname + "/uploads/images/" + imageName;
+      var newPath = __dirname + "/../uploads/images/" + imageName;
+      imagePath = "/uploads/images/" + imageName;
       fs.writeFile(newPath, data, function(err){
-        res.redirect("/past");
+        if(err) console.log(err);
       });
+      console.log("image saved to " + imagePath);
+
+
+      var newEntry = new models.Entry({
+        "user_id" : userID,
+        "text": "test",
+        "date": date,
+        "image": imagePath,//place-held in home.js
+        //"mood_index" : data.mood_index
+      });
+      console.log(newEntry);
+      newEntry.save(afterSaving);
+      function afterSaving(err) { // this is a callback
+        if(err) {console.log(err); res.send(500);}
+        res.send(200);
+      }
     }
   });
-
-  var imagePath = "/uploads/images/" + imageName;  
-  var newEntry = new models.Entry({
-    "user_id" : userID,
-    "text": data.text,
-    "date": data.date,
-    "image": "uploads/",
-    "mood_index" : data.mood_index
-  });
+<<<<<<< HEAD
 
   console.log(newEntry);
   newEntry.save(afterSaving);
@@ -67,6 +76,10 @@ exports.addEntry = function(req, res){
     if(err) {console.log(err); res.send(500);}
     res.send(200);
   }
+=======
+  
+  res.send(200);
+>>>>>>> 7f1cb1f1c2abb92b50da451212bf74221d948c06
 };
 
 exports.removeEntry= function(req, res) {
@@ -105,3 +118,12 @@ exports.getRandomEntry = function(req, res) {
     random_entry.status = "success";
     res.json(random_entry);
 };
+
+
+function getAbbreviatedDate(){
+  var monthNames = new Array(
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+  var now = new Date();
+  var date = monthNames[now.getMonth()] + " " + now.getDate();
+  return date;
+}
