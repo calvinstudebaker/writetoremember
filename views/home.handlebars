@@ -40,16 +40,19 @@
 
 			<form method="post" action="/addEntry" enctype="multipart/form-data">
 				<textarea id ="entry-form" class="form-control" rows="3" placeholder="Write something..." required="true" ></textarea>
-				<input type='file' id='photoUpload' accept='image/*' capture='camera' name='image' class="btn btn-primary btn-sm attachButton"/> 
-
-				<div class = "well">
+				<h5>Rate your mood today:</h5>
+				<center>
 					<div class="slider slider-horizontal" id = "mood-slider">
 						<div class = "slider-track"> 
-							<div class="slider-selection" style="left: 0%; width: 50%;"></div>
-							<!--div class="slider-handle round" style="left: 0%;"></div-->
+							<div class="slider-selection hide" style="left: 0%; width: 50%;"></div>
 						</div>
 					</div>
-				</div>
+				</center>
+			</br>
+				<h5>Upload a photo:</h5>
+
+				<input type='file' id='photoUpload' accept='image/*' capture='camera' name='image' class="btn btn-primary btn-sm attachButton flatButton"/> 
+				
 				<input type="submit" id="submitButton" class="flatButton"/>
 			</form>
 			

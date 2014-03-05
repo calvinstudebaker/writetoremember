@@ -9,18 +9,17 @@ exports.view = function(req, res){
     //res.render('past', pastEntries);//this data needs to come from database!!!
     models.Entry
       .find({"user_id":req.session.username})
-      .sort('-date')
+      .sort({_id:1})
       .exec(renderEntries);
       
     function renderEntries(err, entries) {
       console.log("entries is of form:");
       console.log(entries);
       //console.log(type(entries));
-      if (!entries) {
-        res.render('past', {'entries': entries});
+      if (entries==null || entries == []) {
+          res.render('pastEmpty');
       } else {
-        console.log("it got to the renderentries in pastroute");
-        res.render('pastEmpty');
+          res.render('past', {'entries': entries});
       }
     }
   }
@@ -29,10 +28,6 @@ exports.view = function(req, res){
 exports.addEntry = function(req, res){
   var data = req.body;
   var userID = req.session.username;
-  if(!data.mood_index) {
-    data.mood_index = 0;
-  }
-
   var date = getAbbreviatedDate();
 
   //adapted from http://tonyspiro.com/uploading-and-resizing-an-image-using-node-js/
@@ -57,7 +52,7 @@ exports.addEntry = function(req, res){
         "text": "test",
         "date": date,
         "image": imagePath,//place-held in home.js
-        //"mood_index" : data.mood_index
+        "mood_index" : data.mood_index
       });
       console.log(newEntry);
       newEntry.save(afterSaving);
