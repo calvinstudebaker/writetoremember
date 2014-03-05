@@ -30,15 +30,38 @@ exports.addEntry = function(req, res){
   var userID = req.session.username;
   var date = getAbbreviatedDate();
 
-  //adapted from http://tonyspiro.com/uploading-and-resizing-an-image-using-node-js/
-  fs.readFile(req.files.image.path, function(err, data){
-    imageName = req.files.image.name;
+  var imageName = req.files.image.name;
+  var imagePath = "none";
+  if(!imageName){
+    console.log("no image found");
 
-    if(!imageName){
-      console.log("No image found");
-      imagePath = "none";
-      res.send(200);
-    } else{
+    var newEntry = new models.Entry({
+        "user_id" : userID,
+        "text": req.body.text,
+        "date": date,
+        "image": imagePath,
+        "mood_index" : data.mood_index
+      });
+      console.log(newEntry);
+      newEntry.save(afterSaving);
+      function afterSaving(err) { // this is a callback
+        if(err) {console.log(err); res.send(500);}
+        
+        models.Entry
+          .find({"user_id":req.session.username})
+          .sort({_id:1})
+          .exec(renderEntries);
+      } 
+
+
+    models.Entry
+      .find({"user_id":req.session.username})
+      .sort({_id:1})
+      .exec(renderEntries);
+  }else{
+    //adapted from http://tonyspiro.com/uploading-and-resizing-an-image-using-node-js/
+    fs.readFile(req.files.image.path, function(err, data){
+      imageName = req.files.image.name;
       var newPath = __dirname + "/../uploads/images/" + imageName;
       imagePath = "/uploads/images/" + imageName;
       fs.writeFile(newPath, data, function(err){
@@ -46,10 +69,9 @@ exports.addEntry = function(req, res){
       });
       console.log("image saved to " + imagePath);
 
-
       var newEntry = new models.Entry({
         "user_id" : userID,
-        "text": "test",
+        "text": req.body.text,
         "date": date,
         "image": imagePath,//place-held in home.js
         "mood_index" : data.mood_index
@@ -58,10 +80,26 @@ exports.addEntry = function(req, res){
       newEntry.save(afterSaving);
       function afterSaving(err) { // this is a callback
         if(err) {console.log(err); res.send(500);}
-        res.send(200);
+        
+        models.Entry
+          .find({"user_id":req.session.username})
+          .sort({_id:1})
+          .exec(renderEntries);
+      } 
+    });
+  }
+
+
+  function renderEntries(err, entries) {
+      console.log("entries is of form:");
+      console.log(entries);
+      //console.log(type(entries));
+      if (entries==null || entries == []) {
+          res.render('pastEmpty');
+      } else {
+          res.render('past', {'entries': entries});
       }
-    }
-  });
+  }
 
  // console.log(newEntry);
   //newEntry.save(afterSaving);
@@ -70,8 +108,6 @@ exports.addEntry = function(req, res){
    // if(err) {console.log(err); res.send(500);}
    // res.send(200);
   //}
-  
-  res.send(200);
 };
 
 exports.removeEntry= function(req, res) {

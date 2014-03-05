@@ -72,12 +72,12 @@ app.post('/instructions', instructions.view);
 
 
 //see photo uploaded to server
-app.get('/uploads/fullsize/:file', function (req, res){
-	file = req.params.file;
-	var img = fs.readFileSync(__dirname + "/uploads/fullsize/" + file);
+app.get('/uploads/images/:file', function (req, res){
+	var file = req.params.file;
+	console.log("image requested: " + file);
+	var img = fs.readFileSync(__dirname + "/uploads/images/" + file);
 	res.writeHead(200, {'Content-Type': 'image/jpg' });
 	res.end(img, 'binary');
-
 });
 
 // Example route

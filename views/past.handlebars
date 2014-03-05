@@ -45,7 +45,13 @@
 					{{#each entries}}
 					<tr> <div class = "entryRow" id ="{{_id}}">
 						<td> {{date}}</td> 
-						<td> {{text}} </td>
+						<td> {{text}} 
+							<script>
+								if("{{image}}" != "none"){
+									document.write("<br><img src='{{image}}' height='300' width='300'>");
+								}
+							</script>
+						</td>
 						<td> <h5>{{mood_index}}</h5> </td>
 
 						<td><a data-toggle="modal" href="#editModal_{{id}}" class = "btn btn-primary btn-sm pastButton">edit</a>
