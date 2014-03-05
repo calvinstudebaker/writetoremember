@@ -67,19 +67,16 @@ exports.addEntry = function(req, res){
       }
     }
   });
-<<<<<<< HEAD
 
-  console.log(newEntry);
-  newEntry.save(afterSaving);
+ // console.log(newEntry);
+  //newEntry.save(afterSaving);
 
-  function afterSaving(err) { // this is a callback
-    if(err) {console.log(err); res.send(500);}
-    res.send(200);
-  }
-=======
+//  function afterSaving(err) { // this is a callback
+   // if(err) {console.log(err); res.send(500);}
+   // res.send(200);
+  //}
   
   res.send(200);
->>>>>>> 7f1cb1f1c2abb92b50da451212bf74221d948c06
 };
 
 exports.removeEntry= function(req, res) {
