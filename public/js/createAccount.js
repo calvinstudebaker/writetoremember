@@ -43,7 +43,7 @@ function createAccount(){
 	$.post("/createAccount", data, function(response){
 		console.log(response);
 		if(response.status == "success"){
-			switchToPage("/home");
+			switchToPage("/instructions");
 		}else{
 			showUsernameError();
 		}
