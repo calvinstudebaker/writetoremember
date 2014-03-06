@@ -20,8 +20,7 @@
     "mongoose": "*",
     "pubnub": "*",
     "request": "*",
-    "client-sessions": "*",
-    "blueimp-file-upload-node": "*"
+    "client-sessions": "*"
   },
   "engines": {
     "node": "0.10.x"

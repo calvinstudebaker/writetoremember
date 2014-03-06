@@ -26,10 +26,17 @@ exports.view = function(req, res){
 };
 
 exports.addEntry = function(req, res){
-  var data = req.body;
+  console.log(req.body);
+  var transloaditData = JSON.parse(req.body.transloadit);
+  var transloaditResults = transloaditData.results;
+  var photoURL;
+  if(transloaditResults.hasOwnProperty('resize')) photoURL = transloaditData.results.resize[0].url;
+  else photoURL = "none";
+  console.log("Photo url: " + photoURL);
   var userID = req.session.username;
   var date = getAbbreviatedDate();
-
+/*
+<<<<<<< HEAD
   var imageName = req.files.image.name;
   var imagePath = "none";
   if(!imageName){
@@ -80,6 +87,26 @@ exports.addEntry = function(req, res){
           .exec(renderEntries);
       } 
 
+=======
+*/
+  var newEntry = new models.Entry({
+    "user_id" : userID,
+    "text": req.body.text,
+    "date": date,
+    "image": photoURL,
+    "mood_index" : req.body.mood_index
+  });
+
+  newEntry.save(afterSaving);
+  function afterSaving(err) { // this is a callback
+    if(err) {console.log(err); res.send(500);}
+    else{
+      models.Entry
+      .find({"user_id":req.session.username})
+      .sort({'date':-1})
+      .exec(renderEntries);
+    }
+  };
 
   function renderEntries(err, entries) {
       console.log("entries is of form:");
@@ -90,7 +117,46 @@ exports.addEntry = function(req, res){
       } else {
           res.render('past', {'entries': entries});
       }
-  }
+  };
+
+  // var imageName = req.files.image.name;
+  // var imagePath = "none";
+  // if(!imageName){
+  //   console.log("no image found");
+  //   models.Entry
+  //     .find({"user_id":req.session.username})
+  //     .sort({'date':-1})
+  //     .exec(renderEntries);
+  // }else{
+  //   //adapted from http://tonyspiro.com/uploading-and-resizing-an-image-using-node-js/
+  //   fs.readFile(req.files.image.path, function(err, data){
+  //     imageName = req.files.image.name;
+  //     var newPath = __dirname + "/../uploads/images/" + imageName;
+  //     imagePath = "/uploads/images/" + imageName;
+  //     fs.writeFile(newPath, data, function(err){
+  //       if(err) console.log(err);
+  //     });
+  //     console.log("image saved to " + imagePath);
+
+  //     var newEntry = new models.Entry({
+  //       "user_id" : userID,
+  //       "text": req.body.text,
+  //       "date": date,
+  //       "image": imagePath,//place-held in home.js
+  //       "mood_index" : data.mood_index
+  //     });
+  //     console.log(newEntry);
+  //     newEntry.save(afterSaving);
+  //     function afterSaving(err) { // this is a callback
+  //       if(err) {console.log(err); res.send(500);}
+        
+  //       models.Entry
+  //         .find({"user_id":req.session.username})
+  //         .sort({'date':-1})
+  //         .exec(renderEntries);
+  //     } 
+  //   });
+  // }
 
  // console.log(newEntry);
   //newEntry.save(afterSaving);
@@ -119,8 +185,7 @@ exports.removeEntry= function(req, res) {
 exports.editEntry = function(req, res){
   models.Entry
     .update({"_id":req.body.entryID, "user_id":req.session.username}, 
-    { $set: { "text" : req.body.text } }
-    )
+    { $set: { "text" : req.body.text } })
     .exec(afterEdit);
 
   function afterEdit(err, projects) {
