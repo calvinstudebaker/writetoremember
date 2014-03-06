@@ -103,7 +103,7 @@ exports.addEntry = function(req, res){
     else{
       models.Entry
       .find({"user_id":req.session.username})
-      .sort({'date':-1})
+      .sort({'_id':-1})
       .exec(renderEntries);
     }
   };

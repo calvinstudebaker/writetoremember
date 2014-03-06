@@ -48,11 +48,10 @@
 						<td> {{text}} 
 							<script>
 								if("{{image}}" != "none"){
-									document.write("<br><img src='{{image}}'>");
+									document.write("<br><img src='{{image}}' width = 50% heigth = 50%>");
 								}
 							</script>
 						</td>
-						<td> <h5>{{mood_index}}</h5> </td>
 
 						<td><a data-toggle="modal" href="#editModal_{{id}}" class = "btn btn-primary btn-sm pastButton">edit</a>
 							<div class="modal" id="editModal_{{id}}">
