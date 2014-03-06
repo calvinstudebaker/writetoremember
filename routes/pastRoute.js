@@ -9,7 +9,7 @@ exports.view = function(req, res){
     //res.render('past', pastEntries);//this data needs to come from database!!!
     models.Entry
       .find({"user_id":req.session.username})
-      .sort({'date': -1})
+      .sort({'_id': -1})
       .exec(renderEntries);
       
     function renderEntries(err, entries) {
@@ -44,18 +44,9 @@ exports.addEntry = function(req, res){
       });
 
       newEntry.save(afterSaving);
-      function afterSaving(err) { // this is a callback
-        if(err) {console.log(err); res.send(500);}
-
-        models.Entry
-          .find({"user_id":req.session.username})
-          .sort({'_id':-1})
-          .exec(renderEntries);
-      } 
-
-    models.Entry
+      models.Entry
       .find({"user_id":req.session.username})
-      .sort({_id:-1})
+      .sort({'_id':-1})
       .exec(renderEntries);
   }else{
     //adapted from http://tonyspiro.com/uploading-and-resizing-an-image-using-node-js/
@@ -77,7 +68,10 @@ exports.addEntry = function(req, res){
       });
       console.log(newEntry);
       newEntry.save(afterSaving);
-      function afterSaving(err) { // this is a callback
+    });
+    }
+
+    function afterSaving(err) { // this is a callback
         if(err) {console.log(err); res.send(500);}
         
         models.Entry
@@ -85,8 +79,6 @@ exports.addEntry = function(req, res){
           .sort({'_id':-1})
           .exec(renderEntries);
       } 
-    });
-  }
 
 
   function renderEntries(err, entries) {
