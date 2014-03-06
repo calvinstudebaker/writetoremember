@@ -71,7 +71,7 @@ app.post('/addEntry', past.addEntry);
 app.post('/instructions', instructions.view);
 
 
-//see photo uploaded to server
+//see photo uploaded to local filesystem
 app.get('/uploads/images/:file', function (req, res){
 	var file = req.params.file;
 	console.log("image requested: " + file);

@@ -13,6 +13,11 @@
 	<link href="/css/home.css" rel="stylesheet">
 	<link rel="apple-touch-startup-image" href="/public/images/WtRIcon.png">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//assets.transloadit.com/js/jquery.transloadit2-v2-latest.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/general.js"></script>
+	<script src="/js/home.js"></script>
+	<script src="/js/bootstrap-slider.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,16 +43,13 @@
 			<h4 class = "home-header">Write something:</h4>
 			<h4 id="errorPlaceholder" class="error"></h4>
 
-			<form method="post" action="/addEntry" enctype="multipart/form-data">
+			<form method="post" action="/addEntry" enctype="multipart/form-data" id="uploadForm">
 				<textarea id ="entry-form" class="form-control" name = "text" rows="3" placeholder="Write something..." required="true" ></textarea>
 				<h5>Rate your mood today:</h5>
 				<center>
-					<div class="slider slider-horizontal" id = "mood-slider">
-						<div class = "slider-track"> 
-							<div class="slider-selection hide" style="left: 0%; width: 50%;"></div>
-						</div>
-					</div>
+					<input type="text" name="slider" id="moodSlider" class="span2" value="" data-slider-min="1" data-slider-max = "10" data-slider-step="1" data-slider-value="5" data-slider-orientation = "horizontal" data-slider-tooltip="show">
 				</center>
+				<input type="hidden" id="moodValue" name="mood_index" value = "5">
 			</br>
 				<h5>Upload a photo:</h5>
 
@@ -92,11 +94,6 @@
 		</center>
 	</div>
 </div>
-<script src="https://code.jquery.com/jquery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/general.js"></script>
-<script src="/js/home.js"></script>
-<script src="/js/bootstrap-slider.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
