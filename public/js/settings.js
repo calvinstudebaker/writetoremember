@@ -16,6 +16,9 @@ $(document).ready(function() {
 		}
 	});
 
+
+	$("#changePassword").click(changePassword);
+
 	$("#testPush").click(testPushNotification);
 });
 
@@ -23,4 +26,14 @@ function testPushNotification(){
 	$.get("/testPush", function(response){
 		if(response.status == "success") alert("sent");
 	});
+}
+
+function changePassword() {
+	var data = new Object()//TODO: make the route and get verification for the new password matching! 
+	data.newPassword = $("passwordField").val();
+	$.post("/changePassword", data, function(response) {
+		if(response.status != "success") {
+			alert("Your password was not changed.");
+		}
+	}
 }
