@@ -42,6 +42,13 @@
 		<center>
 			<div class="pastEntries">
 				<table id ="pastTable" class="table table-hover">
+					<tr>
+  						<th>Date</th>
+					  <th>Entry</th> 
+					  <th>Mood</th>
+					  <th>Edit</th>
+					  <th>Delete</th>
+					</tr>
 					{{#each entries}}
 					<tr> <div class = "entryRow" id ="{{_id}}">
 						<td> {{date}}</td> 
@@ -52,7 +59,7 @@
 								}
 							</script>
 						</td>
-
+						<td>{{mood_index}}</td>
 						<td><a data-toggle="modal" href="#editModal_{{id}}" class = "btn btn-primary btn-sm pastButton">edit</a>
 							<div class="modal" id="editModal_{{id}}">
 							<div class="modal-dialog">
@@ -96,11 +103,10 @@
 					</div>
 					{{/each}}
 				</table>
-			</div>
-			<br><br>			
+			</div>	
 		</center>
 	</div>
-		<div class ="footer">
+	<div class ="footer">
 		<br>
 		<center>
 			<button type="button" id="pastButton" class="btn btn-primary btn-lg bottomButton">

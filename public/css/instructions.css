@@ -1,0 +1,8 @@
+.content{
+	max-height: 100%;
+	overflow-y: scroll;
+}
+
+.header{
+	position: fixed;
+}

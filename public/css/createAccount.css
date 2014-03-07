@@ -1,0 +1,13 @@
+.content{
+	position: fixed;
+  background-size: 110%;
+  background-position: center;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  opacity: 0.3;
+  display: block;
+  background-image: url('http://www.thatscrafty.co.uk/user/products/large/indigoblu-cling-mounted-rubber-stamp-script-background-47029-p.jpg');
+  width: 100%;
+  height: 100%;
+}
