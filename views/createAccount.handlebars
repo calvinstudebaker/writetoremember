@@ -38,23 +38,25 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 </head>
 
 <body>
-	<div class="header">
-		<center>
-		<span class="logo">Write to Remember</span>
-		</center>
-  	</div>
-	<div class="container">
-		<center>
-			<h1>Create New Account</h1>
-			<h4 id="errorPlaceholder" class="error"></h4>
-			<form action="javascript:void(0)" onsubmit="createAccount()">
-				<input type="text" placeholder="username" id="username" autocomplete="off"><br>
-				<input type="password" placeholder="password" id="password" autocomplete="off"><br>
-				<input type="password" placeholder="confirm password" id="retypePassword" autocomplete="off"><br>
-	    		<input type="submit" value="Create Account" id="createButton"><br>
-	    		<button type="button" id ="backButton" class="flatButton">Back to Login</button>
-			</form>
-		</center>
+	<div class="content">
+		<div class="header">
+			<center>
+			<span class="logo">Write to Remember</span>
+			</center>
+	  	</div>
+		<div class="container">
+			<center>
+				<h1>Create New Account</h1>
+				<h4 id="errorPlaceholder" class="error"></h4>
+				<form action="javascript:void(0)" onsubmit="createAccount()">
+					<input type="text" placeholder="username" id="username" autocomplete="off"><br>
+					<input type="password" placeholder="password" id="password" autocomplete="off"><br>
+					<input type="password" placeholder="confirm password" id="retypePassword" autocomplete="off"><br>
+		    		<input type="submit" value="Create Account" id="createButton"><br>
+		    		<button type="button" id ="backButton" class="flatButton">Back to Login</button>
+				</form>
+			</center>
+		</div>
 	</div>
 	<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
