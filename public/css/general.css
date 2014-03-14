@@ -130,7 +130,7 @@ span.logo{
 
 .container{
   margin-top: 10px;
-
+  overflow-y: scroll;
 }
 
 .tutorialHeader{
