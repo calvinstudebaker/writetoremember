@@ -26,10 +26,6 @@ body{
      min-width: 200px;
 }
 
-*:not(html) {
-    -webkit-transform: translate3d(0, 0, 0);
-}
-
 .content:before {
   content: "";
   position: fixed;
