@@ -19,7 +19,7 @@
     "mongodb": "*",
     "mongoose": "*",
     "pubnub": "*",
-    "request": "*",
+    "pushover-notifications": "*",
     "client-sessions": "*"
   },
   "engines": {

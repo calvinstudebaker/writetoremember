@@ -38,20 +38,22 @@
 	   			<option value="daily">Daily</option>
 	   			<option value="weekly">Weekly</option>
 	   		</select>
-	   		<!--button type="button" id="changePassword" class="flatButton">Change Password</button>
-	   		<input type="password" placeholder="password" id="password" autocomplete="off"class = "hide"><br>
-			<!--input type="password" placeholder="confirm password" id="retypePassword" autocomplete="off" class = "hide"><br-->
-	   		<!--button type="button" id="testPush" class="flatButton">Test Push Notification</button-->
 	   		<br><br>
+	   		<span>Pushover User Key:        </span>
+	   		<input type="text" placeholder="Pushover User Key" id="pushKey" autocomplete="off" class="hidden">
+	   		<span class="pushText">{{pushCode}}</span>
+	   		<button type="button" class="btn btn-primary btn-sm" id="editKey">Edit</button>
+	   		<button type="button" class="btn btn-primary btn-sm hidden" id="saveKey">Save</button>
 	   		<br><br>
-
+	   		<br>
+	   		<span class="error"></span><br>
 	   		<button type="button" id="testPush" class="flatButton">Test Push Notification</button>
 
-	   		<div id="rateKey" class={{rate}}></div>	
+	   		<div id="rateKey" class="{{frequency}}"></div>	
 	   		<!--button type = "button" id = "apiTest" class="btn btn-primary btn-lg">Test API</button-->
 		</center>
 	</div>
-		<div class ="footer">
+	<div class ="footer">
 		<br>
 		<center>
 			<button type="button" id="pastButton" class="btn btn-primary btn-lg bottomButton">

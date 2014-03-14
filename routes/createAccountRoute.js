@@ -26,6 +26,7 @@ exports.createAccount = function(req, res){
 		   		"password" :req.body.password,
 		    	"frequency" : "daily",
 		   	 	"time" : 1230,
+		   	 	"pushCode" : "none",
 		  });
 		  newUser.save(afterSaving);
 

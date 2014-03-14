@@ -60,7 +60,7 @@ app.get('/past', past.view);
 app.get('/settings', settings.view);
 app.get('/create', createAccount.view);
 app.get('/instructions', instructions.view);
-app.get('/testPush', push.testPush)
+app.post('/testPush', push.testPush)
 app.post('/signIn', index.signIn);
 app.post('/saveSettings', settings.save);
 app.post('/createAccount', createAccount.createAccount);
